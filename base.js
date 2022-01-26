@@ -82,7 +82,7 @@ $(document).ready(function(){
       ["An efficient approach for mining weighted frequent patterns with dynamic weights",	"U Dewan, CF Ahmed, CK Leung, Redwan Ahmed Rizvee, D Deng",	"<a href='https://drive.google.com/file/d/1GogVYGnFzHizZcvt_Z7aXrhPoikl4eNR/view?usp=sharing'>Link</a>",	2019,	"ICDM 2019"],
       ["How Newspapers Portrayed COVID-19: A Study Based on United Kingdom and Bangladesh",	"Redwan Ahmed Rizvee, M Zaber",	"<a href='https://drive.google.com/file/d/1cbjVD3wVh-0jn--dN5SkJh4N7SMv97KZ/view?usp=sharing'>Link</a>",	2021,	"ANTICOVID 2021"],
       ["What Can Nighttime Lights Tell Us about Bangladesh?",	"M Wahed, Redwan Ahmed Rizvee, RR Haque, AM Ali, M Zaber",	"<a href='https://drive.google.com/file/d/1Bbb93zngPhSX2Wa0jIg8WtAu07zGtcSe/view?usp=sharing'>Link</a>",	2021,	"TENSYMP 2020"],
-      ["Mining Contextual Item Similarity without Concept Hierarchy",	"MF Arefin, CF Ahmed, Redwan Ahmed Rizvee",	"<a href='https://drive.google.com/file/d/1yNsSu1GxAdnvaNeb76ImQmx-A46wL9jw/view?usp=sharing'>Link</a>",	2021,	"IMCOM 2021"],
+      ["Mining Contextual Item Similarity without Concept Hierarchy",	"MF Arefin, CF Ahmed, Redwan Ahmed Rizvee",	"<a href='https://drive.google.com/file/d/1yNsSu1GxAdnvaNeb76ImQmx-A46wL9jw/view?usp=sharing'>Link</a>",	2022,	"IMCOM 2022"],
       ["A Robust Three-Stage Hybrid Framework For English To Bangla Ttransliteration",	"Redwan Ahmed Rizvee, A Mahmood, SS Mullick, S Hakim",	"<a href='https://drive.google.com/file/d/1L33iKHugbWOGi0q3nK07VHXkMMhfyAqi/view?usp=sharing'>Link</a>",	2021,	"IJNLC"]
     ]
     return [column_names, publications]
