@@ -18,6 +18,7 @@ $(document).ready(function(){
         break;
       }
     }
+    console.log(current_key)
   }
   getCurrentUrl();
 
