@@ -8,13 +8,6 @@ $(document).ready(function(){
 
   let current_key = "";
 
-  try{
-    console.log($.csv);
-  }
-  catch(e){
-    console.log(e);
-  }
-
   // jQuery methods go here...
   function getCurrentUrl(){
     let url = window.location.href.split('/');
