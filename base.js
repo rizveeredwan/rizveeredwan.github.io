@@ -19,6 +19,9 @@ $(document).ready(function(){
       }
     }
     console.log(current_key)
+    if current_key === "" {
+      current_key = options.keys[0];
+    }
   }
   getCurrentUrl();
 
