@@ -19,7 +19,7 @@ $(document).ready(function(){
       }
     }
     console.log(current_key)
-    if current_key === "" {
+    if (current_key === "") {
       current_key = options.keys[0];
     }
   }
@@ -78,7 +78,7 @@ $(document).ready(function(){
     return string;
   }
 
-  function readFromCSV(){
+  function readFromCSV_publications(){
     column_names = ['Paper name',	'Authors',	'Link',	'Year',	'Venue'],
     publications = [
       ["Tree-miner: mining sequential patterns from sp-tree",	"Redwan Ahmed Rizvee, MF Arefin, CF Ahmed",	"<a href='https://drive.google.com/file/d/1frNezmqqcPZeYa3YQPzL_eWIXR4_gYZm/view?usp=sharing'>Link</a>",	2020,	"PAKDD 2020"],
@@ -91,12 +91,20 @@ $(document).ready(function(){
     ]
     return [column_names, publications]
   }
-  let data = readFromCSV()
+
+  // publications
+  let data = readFromCSV_publications()
   let table_string = constructTable(data[0], data[1]);
   $('#dtBasicExample').html(table_string)
   $('#dtBasicExample').DataTable({
       "ordering": true // false to disable sorting (or any other option)
   });
+
+
+  /*$('#projects_table').DataTable({
+      "ordering": true // false to disable sorting (or any other option)
+  });*/
+
   $('.dataTables_length').addClass('bs-select');
 
 });
