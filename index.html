@@ -84,19 +84,40 @@
 
 <div class="container">
   <div class="row">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light ml-auto" id="normal_navigation" style="display:none;">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
       </div>
     </nav>
+    <!-- Simulate a smartphone / tablet -->
+    <div class="mobile-container">
 
-    <div class="col-md-4" style="margin-top:10%;">
-      <img class="center-block img-thumbnail rounded"  src="./resources/DSC_0118.jpg" />
+    <!-- Top Navigation Menu -->
+    <div class="mobilenav" id="mobile_navigation" style="display:none;">
+      <a href="#home" style="color:#2e86c1;">Menu</a>
+      <div id="myLinks">
+        <!--
+          <a href="index.html">News</a>
+          <a href="experience.html">Contact</a>
+          <a href="projects.html">About</a>
+        -->
+      </div>
+      <a href="javascript:void(0);" class="icon" id="logo_button">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
-    <h1>Redwan Ahmed Rizvee</h1>
+    <!-- End smartphone / tablet look -->
+    </div>
+
   </div>
+
+  <div class="col-md-4" style="margin-top:5%;">
+    <img class="center-block img-thumbnail rounded"  src="./resources/DSC_0118.jpg" />
+  </div>
+  <h1>Redwan Ahmed Rizvee</h1>
+
   <div class="col">
     <i class="far fa-envelope"></i><a style="margin-left:10px;" href="#">rizveeredwan.csedu@gmail.com</a>
   </div>

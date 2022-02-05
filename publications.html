@@ -83,13 +83,32 @@
 -->
 <div class="container">
   <div class="row">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light ml-auto" id="normal_navigation" style="display:none;">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
       </div>
     </nav>
+    <!-- Simulate a smartphone / tablet -->
+    <div class="mobile-container">
+
+    <!-- Top Navigation Menu -->
+    <div class="mobilenav" id="mobile_navigation" style="display:none;">
+      <a href="#home" style="color:#2e86c1;">Menu</a>
+      <div id="myLinks">
+        <!--
+          <a href="index.html">News</a>
+          <a href="experience.html">Contact</a>
+          <a href="projects.html">About</a>
+        -->
+      </div>
+      <a href="javascript:void(0);" class="icon" id="logo_button">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    <!-- End smartphone / tablet look -->
+    </div>
 
     <h1 style="margin-top:10%;">Accepted Articles</h1>
     <div id="table-div" class="table-responsive" style="margin:auto; margin-top:5%;">
@@ -123,7 +142,7 @@
     <h1>Some ongoing works</h1>
     <small>*These works are ongoing/unfinished/imcomplete/have not been still accepted</small>
     <ul>
-      <li><a href="https://drive.google.com/file/d/1doIgiAgDhB5iAAaj3gWMgpcIg0O1rjaF/view?usp=sharing">Telemedicine service consumption pattern during COVID-19 in Bangladesh, MF Arefin, Redwan Ahmed Rizvee</a>/li>
+      <li><a href="https://drive.google.com/file/d/1doIgiAgDhB5iAAaj3gWMgpcIg0O1rjaF/view?usp=sharing">Telemedicine service consumption pattern during COVID-19 in Bangladesh, MF Arefin, Redwan Ahmed Rizvee</a></li>
       <li><a href="https://drive.google.com/file/d/1Np0popiScSe_gF-4GQCVWu1xkypvJSHk/view?usp=sharing">A New Framework for Mining High Utility Time Series Periodical Patterns, Redwan Ahmed Rizvee, CF Ahmed</a></li>
     </ul>
   </div>
