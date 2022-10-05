@@ -1,3 +1,9 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
 .center {
   margin: auto;
   width: 40%;
@@ -6,17 +12,6 @@
   margin-top:50px;
 }
 
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 80%;
-   background-color: red;
-   color: white;
-   text-align: center;
-   margin-left: 10%;
-   margin-right: 10%;
-}
 
 .mobile-container {
   max-width: 480px;
@@ -58,7 +53,32 @@
   color: black;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
 
+.grid-child{
+  padding: 20px;
+}
+
+
+.content {
+  padding: 20px;
+  min-height: 100%;
+  margin: 0 auto -50px;
+}
+.push{
+  height: 50px;
+  width:100%;
+}
+.footer {
+  /* https://css-tricks.com/couple-takes-sticky-footer/ */
+  height: 50px;
+  background-color: black;
+  width:100%;
+}
 
 /*.active {
   background-color: #04AA6D;
