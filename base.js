@@ -125,26 +125,46 @@ $(document).ready(function(){
     return string;
   }
 
-  function readFromCSV_publications(){
-    column_names = ['Paper name',	'Authors',	'Link',	'Year',	'Venue'],
-    publications = [
-      ["Tree-miner: mining sequential patterns from sp-tree",	"Redwan Ahmed Rizvee, MF Arefin, CF Ahmed",	"<a href='https://drive.google.com/file/d/1frNezmqqcPZeYa3YQPzL_eWIXR4_gYZm/view?usp=sharing'>Link</a>",	2020,	"PAKDD 2020"],
-      ["Sliding window based weighted periodic pattern mining over time series data",	"Redwan Ahmed Rizvee, SH Shahin, CF Ahmed, CK Leung",	"<a href='https://drive.google.com/file/d/1xLMC-gsBUjCz2mXjMZNxnabs1DWHvDM_/view?usp=sharing'>Link</a>",	2019,	"ICDM 2019"],
-      ["An efficient approach for mining weighted frequent patterns with dynamic weights",	"U Dewan, CF Ahmed, CK Leung, Redwan Ahmed Rizvee, D Deng",	"<a href='https://drive.google.com/file/d/1GogVYGnFzHizZcvt_Z7aXrhPoikl4eNR/view?usp=sharing'>Link</a>",	2019,	"ICDM 2019"],
-      ["How Newspapers Portrayed COVID-19: A Study Based on United Kingdom and Bangladesh",	"Redwan Ahmed Rizvee, M Zaber",	"<a href='https://drive.google.com/file/d/1cbjVD3wVh-0jn--dN5SkJh4N7SMv97KZ/view?usp=sharing'>Link</a>",	2021,	"ANTICOVID 2021"],
-      ["What Can Nighttime Lights Tell Us about Bangladesh?",	"M Wahed, Redwan Ahmed Rizvee, RR Haque, AM Ali, M Zaber",	"<a href='https://drive.google.com/file/d/1Bbb93zngPhSX2Wa0jIg8WtAu07zGtcSe/view?usp=sharing'>Link</a>",	2021,	"TENSYMP 2020"],
-      ["Mining Contextual Item Similarity without Concept Hierarchy",	"MF Arefin, CF Ahmed, Redwan Ahmed Rizvee",	"<a href='https://drive.google.com/file/d/1yNsSu1GxAdnvaNeb76ImQmx-A46wL9jw/view?usp=sharing'>Link</a>",	2022,	"IMCOM 2022"],
+  function readFromCSV_publications(name){
+    var conference_names = [];
+    var publications = [];
+    if (name == 'conference') {
+      column_names = ['Conference',	'Link'];
+      publications = [
+        ['<em>Rizvee, R.A.</em>, Arefin, M.F., Ahmed, C.F. (2020). Tree-Miner: Mining Sequential Patterns from SP-Tree. In: Lauw, H., Wong, RW., Ntoulas, A., Lim, EP., Ng, SK., Pan, S. (eds) Advances in Knowledge Discovery and Data Mining. PAKDD 2020. Lecture Notes in Computer Science(), vol 12085. Springer, Cham. https://doi.org/10.1007/978-3-030-47436-2_4', "<a href='https://drive.google.com/file/d/1frNezmqqcPZeYa3YQPzL_eWIXR4_gYZm/view?usp=sharing'>Paper</a>"],
+        ["<em>Rizvee, R.A.</em>, Shahin, M.S.H., Ahmed, C.F., Leung, C.K., Deng, D., Mai, J.J.: Sliding window based weighted periodic pattern mining over time series data. In: ICDM 2019, pp. 118-132 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (954.8Kb)", "<a href='https://drive.google.com/file/d/1xLMC-gsBUjCz2mXjMZNxnabs1DWHvDM_/view?usp=sharing'>Paper</a>"],
+        ["<em>Rizvee, R.A.</em>, Zaber, M. (2021). How Newspapers Portrayed COVID-19. In: Byrski, A., Czachórski, T., Gelenbe, E., Grochla, K., Murayama, Y. (eds) Computer Science Protecting Human Society Against Epidemics. ANTICOVID 2021. IFIP Advances in Information and Communication Technology, vol 616. Springer, Cham. https://doi.org/10.1007/978-3-030-86582-5_5", "<a href='https://drive.google.com/file/d/1cbjVD3wVh-0jn--dN5SkJh4N7SMv97KZ/view?usp=sharing'>Paper</a>"],
+        ["Dewan, U., Ahmed, C.F., Leung, C.K., <em>Rizvee, R.A.</em>, Deng, D., Souza, J.: An efficient approach for mining weighted frequent patterns with dynamic weights. In: ICDM 2019, pp. 13-27 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (979.1Kb)", "<a href='https://drive.google.com/file/d/1GogVYGnFzHizZcvt_Z7aXrhPoikl4eNR/view?usp=sharing'>Paper</a>"],
+        ["Wahed, M., <em>Rizvee, R. A.</em>, Haque, R. R., Ali, A. M., Zaber, M., & Ali, A. A. (2020, June). What Can Nighttime Lights Tell Us about Bangladesh?. In 2020 IEEE Region 10 Symposium (TENSYMP) (pp. 1612-1615). IEEE.", "<a href='https://drive.google.com/file/d/1Bbb93zngPhSX2Wa0jIg8WtAu07zGtcSe/view?usp=sharing'>Link</a>"],
+        ["Arefin, M. F., Ahmed, C. F., <em>Rizvee, R. A.</em>, Leung, C. K., & Cao, L. (2022, January). Mining Contextual Item Similarity without Concept Hierarchy. In 2022 16th International Conference on Ubiquitous Information Management and Communication (IMCOM) (pp. 1-8). IEEE.", "<a href='https://drive.google.com/file/d/1yNsSu1GxAdnvaNeb76ImQmx-A46wL9jw/view?usp=sharing'>Link</a>"],
+      ]
+    }
+    else if(name == "journal") {
+      column_names = ['Journal',	'Link'];
+      publications = [
+        ["<em>Rizvee, R. A.</em>, Mahmood, A., Mullick, S. S., & Hakim, S. ARobust THREE-STAGE HYBRID FRAMEWORK FOR ENGLISH TO BANGLA TRANSLITERATION., International Journal on Natural Language Computing (IJNLC) Vol.11, No.1, February 2022", "<a href='https://www.researchgate.net/profile/Seth-Darren/publication/359815284_A_Robust_Three-Stage_Hybrid_Framework_for_English_to_Bangla_Transliteration/links/624fe3dd4f88c3119ce876d5/A-Robust-Three-Stage-Hybrid-Framework-for-English-to-Bangla-Transliteration.pdf'>Paper</a>"]
+      ]
+    }
+
+    /*publications = [
       ["A Robust Three-Stage Hybrid Framework For English To Bangla Ttransliteration",	"Redwan Ahmed Rizvee, A Mahmood, SS Mullick, S Hakim",	"<a href='https://drive.google.com/file/d/1L33iKHugbWOGi0q3nK07VHXkMMhfyAqi/view?usp=sharing'>Link</a>",	2021,	"IJNLC"]
-    ]
+    ]*/
     return [column_names, publications]
   }
 
   // publications
-  let data = readFromCSV_publications()
+  let data = readFromCSV_publications("conference")
   let table_string = constructTable(data[0], data[1]);
-  $('#dtBasicExample').html(table_string)
-  $('#dtBasicExample').DataTable({
-      "ordering": true // false to disable sorting (or any other option)
+  $('#conference_info').html(table_string)
+  $('#conference_info').DataTable({
+      "ordering": false // false to disable sorting (or any other option)
+  });
+
+  data = readFromCSV_publications("journal")
+  table_string = constructTable(data[0], data[1]);
+  $('#journal_info').html(table_string)
+  $('#journal_info').DataTable({
+      "ordering": false // false to disable sorting (or any other option)
   });
 
 
