@@ -146,8 +146,8 @@ $(document).ready(function(){
     var publications = [];
     console.log("called this function");
 
-    d3.csv("resources/work_publications.csv", function(data) {
-      console.log(data.length); 
+    d3.csv("https://rizveeredwan.github.io/resources/work_publications.csv", function(data) {
+      console.log(data.length);
       for (var i = 0; i < data.length; i++) {
           console.log(data[i].title);
           console.log(data[i].paper);
