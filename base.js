@@ -125,9 +125,33 @@ $(document).ready(function(){
     return string;
   }
 
+  function constructInfoDiv(json_obj){
+      let div = "<div>";
+      if(json_obj.hasOwnproperty('title') && json_obj['title'] != "") {
+          div += json_obj['title']+'<br>';
+      }
+      options = ['code', 'paper', 'report', 'video']
+      corr_names = ['Code', 'Paper', 'Report', 'Video']
+      for(let i=0; i<options.length; i++){
+        if(json_obj.hasOwnproperty(options[i]) && json_obj[options[i]] != "") {
+            div += '<a href="'+json_obj[options[i]]+'" >['+corr_names[i]+']</a>' ;
+        }
+      }
+      div += '</div>';
+      return div;
+  }
+
   function readFromCSV_publications(name){
     var conference_names = [];
     var publications = [];
+
+    d3.csv("resources/work_publications.csv", function(data) {
+      for (var i = 0; i < data.length; i++) {
+          console.log(data[i].title);
+          console.log(data[i].paper);
+      }
+   });
+
     if (name == 'conference') {
       column_names = ['Conference',	'Link'];
       publications = [
