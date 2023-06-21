@@ -144,9 +144,10 @@ $(document).ready(function(){
   function readFromCSV_publications(name){
     var conference_names = [];
     var publications = [];
-    console.log("called this function"); 
+    console.log("called this function");
 
     d3.csv("resources/work_publications.csv", function(data) {
+      console.log(data.length); 
       for (var i = 0; i < data.length; i++) {
           console.log(data[i].title);
           console.log(data[i].paper);
