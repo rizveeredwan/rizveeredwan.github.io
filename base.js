@@ -132,15 +132,16 @@ $(document).ready(function(){
       if(json_obj.hasOwnProperty('title') && json_obj['title'] != "") {
           div += json_obj['title']+'<br>';
       }
-      options = ['code', 'paper', 'report', 'video']
-      corr_names = ['Code', 'Paper', 'Report', 'Video']
-      for(let i=0; i<options.length; i++){
-        if(json_obj.hasOwnProperty(options[i]) && json_obj[options[i]] != "") {
-            div += '<a href="'+json_obj[options[i]]+'" >'+'['+corr_names[i]+']</a>' ;
+      var name;
+      for (key in json_obj){
+        if (key.toLowerCase() != 'title') {
+          console.log("key ", key);
+          name = key[0].toUpperCase()+key.slice(1);
+          div += '<a href="'+json_obj[key]+'" >'+'['+name+']</a>' ;
         }
       }
       div += '</div>';
-      //console.log(div)
+      console.log(div)
       return div;
   }
 
@@ -157,8 +158,8 @@ $(document).ready(function(){
         {'title': "Dewan, U., Ahmed, C.F., Leung, C.K., <em>Rizvee, R.A.</em>, Deng, D., Souza, J.: An efficient approach for mining weighted frequent patterns with dynamic weights. In: ICDM 2019, pp. 13-27 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (979.1Kb)" , 'paper': 'https://drive.google.com/file/d/1GogVYGnFzHizZcvt_Z7aXrhPoikl4eNR/view?usp=sharing'},
         {'title': "Wahed, M., <em>Rizvee, R. A.</em>, Haque, R. R., Ali, A. M., Zaber, M., & Ali, A. A. (2020, June). What Can Nighttime Lights Tell Us about Bangladesh?. In 2020 IEEE Region 10 Symposium (TENSYMP) (pp. 1612-1615). IEEE.", 'paper': 'https://drive.google.com/file/d/1Bbb93zngPhSX2Wa0jIg8WtAu07zGtcSe/view?usp=sharing'},
         {'title': "Arefin, M. F., Ahmed, C. F., <em>Rizvee, R. A.</em>, Leung, C. K., & Cao, L. (2022, January). Mining Contextual Item Similarity without Concept Hierarchy. In 2022 16th International Conference on Ubiquitous Information Management and Communication (IMCOM) (pp. 1-8). IEEE.", 'paper': 'https://drive.google.com/file/d/1yNsSu1GxAdnvaNeb76ImQmx-A46wL9jw/view?usp=sharing'},
-        {'title':"R. A. Rizvee, M. Fahim Arefin and M. B. Abid, \"A Robust Objective Focused Algorithm to Detect Source Code Plagiarism,\" 2022 IEEE 13th Annual Ubiquitous Computing, Electronics & Mobile Communication Conference (UEMCON), New York, NY, NY, USA, 2022, pp. 0109-0115, doi: 10.1109/UEMCON54665.2022.9965688.", "code": 'https://github.com/rizveeredwan/copy-checker'},
-        {'title': "R. A. Rizvee, M. F. Arefin, M. R. Khan, M. N. Islam and K. F. Rabbi, \"An Automated System to Calculate Marks from Answer Scripts,\" 2022 IEEE 13th Annual Information Technology, Electronics and Mobile Communication Conference (IEMCON), Vancouver, BC, Canada, 2022, pp. 0048-0054, doi: 10.1109/IEMCON56893.2022.9946626."}
+        {'title':"R. A. Rizvee, M. Fahim Arefin and M. B. Abid, \"A Robust Objective Focused Algorithm to Detect Source Code Plagiarism,\" 2022 IEEE 13th Annual Ubiquitous Computing, Electronics & Mobile Communication Conference (UEMCON), New York, NY, NY, USA, 2022, pp. 0109-0115, doi: 10.1109/UEMCON54665.2022.9965688.", "code": 'https://github.com/rizveeredwan/copy-checker', 'paper': 'https://drive.google.com/file/d/1TMPKvRksDXb7x0V4ZxzZX77ERHh8ldNF/view?usp=sharing'},
+        {'title': "R. A. Rizvee, M. F. Arefin, M. R. Khan, M. N. Islam and K. F. Rabbi, \"An Automated System to Calculate Marks from Answer Scripts,\" 2022 IEEE 13th Annual Information Technology, Electronics and Mobile Communication Conference (IEMCON), Vancouver, BC, Canada, 2022, pp. 0048-0054, doi: 10.1109/IEMCON56893.2022.9946626.", 'paper': 'https://drive.google.com/file/d/1cVf5NrSDCQARIlUGUsRliSYxLTvg4Z0q/view?usp=sharing'}
       ]
     }
     else if(name == "journal") {
