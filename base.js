@@ -144,6 +144,7 @@ $(document).ready(function(){
   function readFromCSV_publications(name){
     var conference_names = [];
     var publications = [];
+    console.log("WTF"); 
 
     d3.csv("resources/work_publications.csv", function(data) {
       for (var i = 0; i < data.length; i++) {
