@@ -108,6 +108,7 @@ $(document).ready(function(){
 
     string += '<tbody>';
     for (let i = 0; i<column_values.length; i++){
+      console.log("column values ", column_values[i]);
       string += '<tr>';
       for(let j=0; j<column_names.length; j++){
         string += '<td>'+column_values[i][j]+ '</td>';
@@ -126,52 +127,50 @@ $(document).ready(function(){
   }
 
   function constructInfoDiv(json_obj){
-      let div = "<div>";
-      if(json_obj.hasOwnproperty('title') && json_obj['title'] != "") {
+      var div = "<div>";
+      console.log(json_obj, json_obj.hasOwnProperty('title'), 'title' in json_obj, typeof(json_object));
+      if(json_obj.hasOwnProperty('title') && json_obj['title'] != "") {
           div += json_obj['title']+'<br>';
       }
       options = ['code', 'paper', 'report', 'video']
       corr_names = ['Code', 'Paper', 'Report', 'Video']
       for(let i=0; i<options.length; i++){
-        if(json_obj.hasOwnproperty(options[i]) && json_obj[options[i]] != "") {
-            div += '<a href="'+json_obj[options[i]]+'" >['+corr_names[i]+']</a>' ;
+        if(json_obj.hasOwnProperty(options[i]) && json_obj[options[i]] != "") {
+            div += '<a href="'+json_obj[options[i]]+'" >'+'['+corr_names[i]+']</a>' ;
         }
       }
       div += '</div>';
+      //console.log(div)
       return div;
   }
 
   function readFromCSV_publications(name){
     var conference_names = [];
     var publications = [];
-    console.log("called this function");
-
-    d3.csv("https://rizveeredwan.github.io/resources/work_publications.csv", function(data) {
-      console.log(data.length);
-      for (var i = 0; i < data.length; i++) {
-          console.log(data[i].title);
-          console.log(data[i].paper);
-      }
-   });
 
     if (name == 'conference') {
-      column_names = ['Conference',	'Link'];
+      column_names = ['Conference'];
       publications = [
-        ['<em>Rizvee, R.A.</em>, Arefin, M.F., Ahmed, C.F. (2020). Tree-Miner: Mining Sequential Patterns from SP-Tree. In: Lauw, H., Wong, RW., Ntoulas, A., Lim, EP., Ng, SK., Pan, S. (eds) Advances in Knowledge Discovery and Data Mining. PAKDD 2020. Lecture Notes in Computer Science(), vol 12085. Springer, Cham. https://doi.org/10.1007/978-3-030-47436-2_4', "<a href='https://drive.google.com/file/d/1frNezmqqcPZeYa3YQPzL_eWIXR4_gYZm/view?usp=sharing'>Paper</a>"],
-        ["<em>Rizvee, R.A.</em>, Shahin, M.S.H., Ahmed, C.F., Leung, C.K., Deng, D., Mai, J.J.: Sliding window based weighted periodic pattern mining over time series data. In: ICDM 2019, pp. 118-132 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (954.8Kb)", "<a href='https://drive.google.com/file/d/1xLMC-gsBUjCz2mXjMZNxnabs1DWHvDM_/view?usp=sharing'>Paper</a>"],
-        ["<em>Rizvee, R.A.</em>, Zaber, M. (2021). How Newspapers Portrayed COVID-19. In: Byrski, A., Czachórski, T., Gelenbe, E., Grochla, K., Murayama, Y. (eds) Computer Science Protecting Human Society Against Epidemics. ANTICOVID 2021. IFIP Advances in Information and Communication Technology, vol 616. Springer, Cham. https://doi.org/10.1007/978-3-030-86582-5_5", "<a href='https://drive.google.com/file/d/1cbjVD3wVh-0jn--dN5SkJh4N7SMv97KZ/view?usp=sharing'>Paper</a>"],
-        ["Dewan, U., Ahmed, C.F., Leung, C.K., <em>Rizvee, R.A.</em>, Deng, D., Souza, J.: An efficient approach for mining weighted frequent patterns with dynamic weights. In: ICDM 2019, pp. 13-27 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (979.1Kb)", "<a href='https://drive.google.com/file/d/1GogVYGnFzHizZcvt_Z7aXrhPoikl4eNR/view?usp=sharing'>Paper</a>"],
-        ["Wahed, M., <em>Rizvee, R. A.</em>, Haque, R. R., Ali, A. M., Zaber, M., & Ali, A. A. (2020, June). What Can Nighttime Lights Tell Us about Bangladesh?. In 2020 IEEE Region 10 Symposium (TENSYMP) (pp. 1612-1615). IEEE.", "<a href='https://drive.google.com/file/d/1Bbb93zngPhSX2Wa0jIg8WtAu07zGtcSe/view?usp=sharing'>Link</a>"],
-        ["Arefin, M. F., Ahmed, C. F., <em>Rizvee, R. A.</em>, Leung, C. K., & Cao, L. (2022, January). Mining Contextual Item Similarity without Concept Hierarchy. In 2022 16th International Conference on Ubiquitous Information Management and Communication (IMCOM) (pp. 1-8). IEEE.", "<a href='https://drive.google.com/file/d/1yNsSu1GxAdnvaNeb76ImQmx-A46wL9jw/view?usp=sharing'>Link</a>"],
+        {'title':"<em>Rizvee, R.A.</em>, Arefin, M.F., Ahmed, C.F. (2020). Tree-Miner: Mining Sequential Patterns from SP-Tree. In: Lauw, H., Wong, RW., Ntoulas, A., Lim, EP., Ng, SK., Pan, S. (eds) Advances in Knowledge Discovery and Data Mining. PAKDD 2020. Lecture Notes in Computer Science(), vol 12085. Springer, Cham. https://doi.org/10.1007/978-3-030-47436-2_4", 'paper':"https://drive.google.com/file/d/1frNezmqqcPZeYa3YQPzL_eWIXR4_gYZm/view?usp=sharing'>Paper</a>"},
+        {'title':"<em>Rizvee, R.A.</em>, Shahin, M.S.H., Ahmed, C.F., Leung, C.K., Deng, D., Mai, J.J.: Sliding window based weighted periodic pattern mining over time series data. In: ICDM 2019, pp. 118-132 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (954.8Kb)", 'paper': 'https://drive.google.com/file/d/1xLMC-gsBUjCz2mXjMZNxnabs1DWHvDM_/view?usp=sharing'},
+        {'title': "<em>Rizvee, R.A.</em>, Zaber, M. (2021). How Newspapers Portrayed COVID-19. In: Byrski, A., Czachórski, T., Gelenbe, E., Grochla, K., Murayama, Y. (eds) Computer Science Protecting Human Society Against Epidemics. ANTICOVID 2021. IFIP Advances in Information and Communication Technology, vol 616. Springer, Cham. https://doi.org/10.1007/978-3-030-86582-5_5" , 'paper': 'https://drive.google.com/file/d/1cbjVD3wVh-0jn--dN5SkJh4N7SMv97KZ/view?usp=sharing'},
+        {'title': "Dewan, U., Ahmed, C.F., Leung, C.K., <em>Rizvee, R.A.</em>, Deng, D., Souza, J.: An efficient approach for mining weighted frequent patterns with dynamic weights. In: ICDM 2019, pp. 13-27 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (979.1Kb)" , 'paper': 'https://drive.google.com/file/d/1GogVYGnFzHizZcvt_Z7aXrhPoikl4eNR/view?usp=sharing'},
+        {'title': "Wahed, M., <em>Rizvee, R. A.</em>, Haque, R. R., Ali, A. M., Zaber, M., & Ali, A. A. (2020, June). What Can Nighttime Lights Tell Us about Bangladesh?. In 2020 IEEE Region 10 Symposium (TENSYMP) (pp. 1612-1615). IEEE.", 'paper': 'https://drive.google.com/file/d/1Bbb93zngPhSX2Wa0jIg8WtAu07zGtcSe/view?usp=sharing'},
+        {'title': "Arefin, M. F., Ahmed, C. F., <em>Rizvee, R. A.</em>, Leung, C. K., & Cao, L. (2022, January). Mining Contextual Item Similarity without Concept Hierarchy. In 2022 16th International Conference on Ubiquitous Information Management and Communication (IMCOM) (pp. 1-8). IEEE.", 'paper': 'https://drive.google.com/file/d/1yNsSu1GxAdnvaNeb76ImQmx-A46wL9jw/view?usp=sharing'},
+        {'title':"R. A. Rizvee, M. Fahim Arefin and M. B. Abid, \"A Robust Objective Focused Algorithm to Detect Source Code Plagiarism,\" 2022 IEEE 13th Annual Ubiquitous Computing, Electronics & Mobile Communication Conference (UEMCON), New York, NY, NY, USA, 2022, pp. 0109-0115, doi: 10.1109/UEMCON54665.2022.9965688.", "code": 'https://github.com/rizveeredwan/copy-checker'},
+        {'title': "R. A. Rizvee, M. F. Arefin, M. R. Khan, M. N. Islam and K. F. Rabbi, \"An Automated System to Calculate Marks from Answer Scripts,\" 2022 IEEE 13th Annual Information Technology, Electronics and Mobile Communication Conference (IEMCON), Vancouver, BC, Canada, 2022, pp. 0048-0054, doi: 10.1109/IEMCON56893.2022.9946626."}
       ]
     }
     else if(name == "journal") {
-      column_names = ['Journal',	'Link'];
+      column_names = ['Journal'];
       publications = [
-        ["<em>Rizvee, R. A.</em>, Mahmood, A., Mullick, S. S., & Hakim, S. ARobust THREE-STAGE HYBRID FRAMEWORK FOR ENGLISH TO BANGLA TRANSLITERATION., International Journal on Natural Language Computing (IJNLC) Vol.11, No.1, February 2022", "<a href='https://www.researchgate.net/profile/Seth-Darren/publication/359815284_A_Robust_Three-Stage_Hybrid_Framework_for_English_to_Bangla_Transliteration/links/624fe3dd4f88c3119ce876d5/A-Robust-Three-Stage-Hybrid-Framework-for-English-to-Bangla-Transliteration.pdf'>Paper</a>"]
+        {'title': "<em>Rizvee, R. A.</em>, Mahmood, A., Mullick, S. S., & Hakim, S. ARobust THREE-STAGE HYBRID FRAMEWORK FOR ENGLISH TO BANGLA TRANSLITERATION., International Journal on Natural Language Computing (IJNLC) Vol.11, No.1, February 2022", 'paper': 'https://www.researchgate.net/profile/Seth-Darren/publication/359815284_A_Robust_Three-Stage_Hybrid_Framework_for_English_to_Bangla_Transliteration/links/624fe3dd4f88c3119ce876d5/A-Robust-Three-Stage-Hybrid-Framework-for-English-to-Bangla-Transliteration.pdf' }
       ]
     }
-
+    for(var i=0; i<publications.length; i++){
+      publications[i] = [constructInfoDiv(publications[i])]
+    }
+    //console.log("publications ", publications)
     /*publications = [
       ["A Robust Three-Stage Hybrid Framework For English To Bangla Ttransliteration",	"Redwan Ahmed Rizvee, A Mahmood, SS Mullick, S Hakim",	"<a href='https://drive.google.com/file/d/1L33iKHugbWOGi0q3nK07VHXkMMhfyAqi/view?usp=sharing'>Link</a>",	2021,	"IJNLC"]
     ]*/
@@ -181,12 +180,14 @@ $(document).ready(function(){
   // publications
   let data = readFromCSV_publications("conference")
   let table_string = constructTable(data[0], data[1]);
+  console.log("data ", data[0], data[1])
+  console.log("table_string conference ", table_string)
   $('#conference_info').html(table_string)
   $('#conference_info').DataTable({
       "ordering": false // false to disable sorting (or any other option)
   });
 
-  data = readFromCSV_publications("journal")
+  data = readFromCSV_publications("journal");
   table_string = constructTable(data[0], data[1]);
   $('#journal_info').html(table_string)
   $('#journal_info').DataTable({
