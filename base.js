@@ -168,13 +168,16 @@ $(document).ready(function(){
         {'title': "<em>Rizvee, R. A.</em>, Mahmood, A., Mullick, S. S., & Hakim, S. ARobust THREE-STAGE HYBRID FRAMEWORK FOR ENGLISH TO BANGLA TRANSLITERATION., International Journal on Natural Language Computing (IJNLC) Vol.11, No.1, February 2022", 'paper': 'https://www.researchgate.net/profile/Seth-Darren/publication/359815284_A_Robust_Three-Stage_Hybrid_Framework_for_English_to_Bangla_Transliteration/links/624fe3dd4f88c3119ce876d5/A-Robust-Three-Stage-Hybrid-Framework-for-English-to-Bangla-Transliteration.pdf' }
       ]
     }
+    else if(name == "ongoing_tasks"){
+      column_names = ['Ongoing Project'];
+      publications = [
+        //{'title': 'Name', 'link': 'Link'} 
+      ]
+    }
     for(var i=0; i<publications.length; i++){
       publications[i] = [constructInfoDiv(publications[i])]
     }
-    //console.log("publications ", publications)
-    /*publications = [
-      ["A Robust Three-Stage Hybrid Framework For English To Bangla Ttransliteration",	"Redwan Ahmed Rizvee, A Mahmood, SS Mullick, S Hakim",	"<a href='https://drive.google.com/file/d/1L33iKHugbWOGi0q3nK07VHXkMMhfyAqi/view?usp=sharing'>Link</a>",	2021,	"IJNLC"]
-    ]*/
+    
     return [column_names, publications]
   }
 
@@ -194,6 +197,23 @@ $(document).ready(function(){
   $('#journal_info').DataTable({
       "ordering": false // false to disable sorting (or any other option)
   });
+
+  // ongoing projects 
+  data = readFromCSV_publications("ongoing_tasks");
+  table_string = constructTable(data[0], data[1]);
+  if(data[1].length == 0) {
+    //$('#ongoing_tasks').css('display', none); 
+    document.getElementById('ongoing_div').style.display="none"
+    document.getElementById('ongoing_tasks').style.display="none"; 
+  }
+  else {
+    $('#ongoing_tasks').html(table_string)
+    $('#ongoing_tasks').DataTable({
+        "ordering": false // false to disable sorting (or any other option)
+    });
+  }
+
+ 
 
 
   $('#projects_table').DataTable({
