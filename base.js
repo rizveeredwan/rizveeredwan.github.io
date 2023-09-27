@@ -152,6 +152,7 @@ $(document).ready(function(){
     if (name == 'conference') {
       column_names = ['Conference'];
       publications = [
+        {'title': 'Bappy, Faisal Haque, Saklain Zaman, Tariqul Islam, <em>Redwan Ahmed Rizvee</em>, Joon S. Park, and Kamrul Hasan. "Towards Immutability: A Secure and Efficient Auditing Framework for Cloud Supporting Data Integrity and File Version Control." arXiv preprint arXiv:2308.04453 (2023).'},
         {'title':"<em>Rizvee, R.A.</em>, Arefin, M.F., Ahmed, C.F. (2020). Tree-Miner: Mining Sequential Patterns from SP-Tree. In: Lauw, H., Wong, RW., Ntoulas, A., Lim, EP., Ng, SK., Pan, S. (eds) Advances in Knowledge Discovery and Data Mining. PAKDD 2020. Lecture Notes in Computer Science(), vol 12085. Springer, Cham. https://doi.org/10.1007/978-3-030-47436-2_4", 'paper':"https://drive.google.com/file/d/1frNezmqqcPZeYa3YQPzL_eWIXR4_gYZm/view?usp=sharing'>Paper</a>"},
         {'title':"<em>Rizvee, R.A.</em>, Shahin, M.S.H., Ahmed, C.F., Leung, C.K., Deng, D., Mai, J.J.: Sliding window based weighted periodic pattern mining over time series data. In: ICDM 2019, pp. 118-132 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (954.8Kb)", 'paper': 'https://drive.google.com/file/d/1xLMC-gsBUjCz2mXjMZNxnabs1DWHvDM_/view?usp=sharing'},
         {'title': "<em>Rizvee, R.A.</em>, Zaber, M. (2021). How Newspapers Portrayed COVID-19. In: Byrski, A., Czachórski, T., Gelenbe, E., Grochla, K., Murayama, Y. (eds) Computer Science Protecting Human Society Against Epidemics. ANTICOVID 2021. IFIP Advances in Information and Communication Technology, vol 616. Springer, Cham. https://doi.org/10.1007/978-3-030-86582-5_5" , 'paper': 'https://drive.google.com/file/d/1cbjVD3wVh-0jn--dN5SkJh4N7SMv97KZ/view?usp=sharing'},
@@ -165,6 +166,7 @@ $(document).ready(function(){
     else if(name == "journal") {
       column_names = ['Journal'];
       publications = [
+        {'title': '<em>Rizvee, Redwan Ahmed</em>, et al. "LeafNet: A proficient convolutional neural network for detecting seven prominent mango leaf diseases." Journal of Agriculture and Food Research (2023): 100787.'},
         {'title': "<em>Rizvee, R. A.</em>, Mahmood, A., Mullick, S. S., & Hakim, S. ARobust THREE-STAGE HYBRID FRAMEWORK FOR ENGLISH TO BANGLA TRANSLITERATION., International Journal on Natural Language Computing (IJNLC) Vol.11, No.1, February 2022", 'paper': 'https://www.researchgate.net/profile/Seth-Darren/publication/359815284_A_Robust_Three-Stage_Hybrid_Framework_for_English_to_Bangla_Transliteration/links/624fe3dd4f88c3119ce876d5/A-Robust-Three-Stage-Hybrid-Framework-for-English-to-Bangla-Transliteration.pdf' }
       ]
     }
