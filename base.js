@@ -166,7 +166,7 @@ $(document).ready(function(){
     else if(name == "journal") {
       column_names = ['Journal'];
       publications = [
-        {'title': "Redwan Ahmed Rizvee, Chowdhury Farhan Ahmed, Md. Fahim Arefin, Carson K. Leung, A new tree-based approach to mine sequential patterns,Expert Systems with Applications,Volume 242,2024,122754,ISSN 0957-4174,<a href='https://doi.org/10.1016/j.eswa.2023.122754'> (https://doi.org/10.1016/j.eswa.2023.122754)</a>" }, 
+        {'title': "Redwan Ahmed Rizvee, Chowdhury Farhan Ahmed, Md. Fahim Arefin, Carson K. Leung, A new tree-based approach to mine sequential patterns,Expert Systems with Applications,Volume 242,2024,122754,ISSN 0957-4174,<a href='https://doi.org/10.1016/j.eswa.2023.122754'> (https://doi.org/10.1016/j.eswa.2023.122754)</a>" },
         {'title': '<em>Rizvee, Redwan Ahmed</em>, et al. "LeafNet: A proficient convolutional neural network for detecting seven prominent mango leaf diseases." Journal of Agriculture and Food Research (2023): 100787.'},
         {'title': "<em>Rizvee, R. A.</em>, Mahmood, A., Mullick, S. S., & Hakim, S. ARobust THREE-STAGE HYBRID FRAMEWORK FOR ENGLISH TO BANGLA TRANSLITERATION., International Journal on Natural Language Computing (IJNLC) Vol.11, No.1, February 2022", 'paper': 'https://www.researchgate.net/profile/Seth-Darren/publication/359815284_A_Robust_Three-Stage_Hybrid_Framework_for_English_to_Bangla_Transliteration/links/624fe3dd4f88c3119ce876d5/A-Robust-Three-Stage-Hybrid-Framework-for-English-to-Bangla-Transliteration.pdf' }
       ]
@@ -215,7 +215,6 @@ $(document).ready(function(){
         "ordering": false // false to disable sorting (or any other option)
     });
   }
-
 
 
 
