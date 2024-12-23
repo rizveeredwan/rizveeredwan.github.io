@@ -165,8 +165,8 @@ $(document).ready(function(){
           ,'paper' : './resources/Published Papers/2308.04453v1.pdf', 'code': 'https://github.com/rizveeredwan/persistent-markel-hash-tree' 
         },
         {'title':'<strong style="font-weight:bold;">Redwan Ahmed Rizvee</strong>, Arefin, M.F., Ahmed, C.F. (2020). Tree-Miner: Mining Sequential Patterns from SP-Tree. In: Lauw, H., Wong, RW., Ntoulas, A., Lim, EP., Ng, SK., Pan, S. (eds) Advances in Knowledge Discovery and Data Mining. PAKDD 2020. Lecture Notes in Computer Science, vol 12085. Springer, Cham. https://doi.org/10.1007/978-3-030-47436-2_4', 
-        'paper':"https://drive.google.com/file/d/1frNezmqqcPZeYa3YQPzL_eWIXR4_gYZm/view?usp=sharing'>Paper</a>",
-        'short_description': 'There lies the abstract here for greater purpose.'},
+        'paper':"https://drive.google.com/file/d/1frNezmqqcPZeYa3YQPzL_eWIXR4_gYZm/view?usp=sharing'>Paper</a>"
+        },
         {'title':'<strong style="font-weight:bold;">Redwan Ahmed Rizvee</strong>, Shahin, M.S.H., Ahmed, C.F., Leung, C.K., Deng, D., Mai, J.J.: Sliding window based weighted periodic pattern mining over time series data. In: ICDM 2019, pp. 118-132 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (954.8Kb)', 
           'paper': 'https://drive.google.com/file/d/1xLMC-gsBUjCz2mXjMZNxnabs1DWHvDM_/view?usp=sharing'},
         {'title': '<strong style="font-weight:bold;">Redwan Ahmed Rizvee</strong>, Zaber, M. (2021). How Newspapers Portrayed COVID-19. In: Byrski, A., Czachórski, T., Gelenbe, E., Grochla, K., Murayama, Y. (eds) Computer Science Protecting Human Society Against Epidemics. ANTICOVID 2021. IFIP Advances in Information and Communication Technology, vol 616. Springer, Cham. https://doi.org/10.1007/978-3-030-86582-5_5' , 
