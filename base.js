@@ -170,7 +170,8 @@ $(document).ready(function(){
         {'title':'<strong style="font-weight:bold;">Redwan Ahmed Rizvee</strong>, Shahin, M.S.H., Ahmed, C.F., Leung, C.K., Deng, D., Mai, J.J.: Sliding window based weighted periodic pattern mining over time series data. In: ICDM 2019, pp. 118-132 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (954.8Kb)', 
           'paper': 'https://drive.google.com/file/d/1xLMC-gsBUjCz2mXjMZNxnabs1DWHvDM_/view?usp=sharing'},
         {'title': '<strong style="font-weight:bold;">Redwan Ahmed Rizvee</strong>, Zaber, M. (2021). How Newspapers Portrayed COVID-19. In: Byrski, A., Czachórski, T., Gelenbe, E., Grochla, K., Murayama, Y. (eds) Computer Science Protecting Human Society Against Epidemics. ANTICOVID 2021. IFIP Advances in Information and Communication Technology, vol 616. Springer, Cham. https://doi.org/10.1007/978-3-030-86582-5_5' , 
-        'paper': 'https://drive.google.com/file/d/1cbjVD3wVh-0jn--dN5SkJh4N7SMv97KZ/view?usp=sharing'},
+        'paper': 'https://drive.google.com/file/d/1cbjVD3wVh-0jn--dN5SkJh4N7SMv97KZ/view?usp=sharing',
+        'code' : 'https://github.com/rizveeredwan/covidnews'},
         {'title': 'Dewan, U., Ahmed, C.F., Leung, C.K., <strong style="font-weight:bold;">Redwan Ahmed Rizvee</strong>, Deng, D., Souza, J.: An efficient approach for mining weighted frequent patterns with dynamic weights. In: ICDM 2019, pp. 13-27 (2019) ICDM 2019 Proceedings, \"Advances in Data Mining: Applications and Theoretical Aspects\", is an open access proceedings book. (979.1Kb)' , 
           'paper': 'https://drive.google.com/file/d/1GogVYGnFzHizZcvt_Z7aXrhPoikl4eNR/view?usp=sharing'},
         {'title': 'Wahed, M., <strong style="font-weight:bold;">Redwan Ahmed Rizvee</strong> , Haque, R. R., Ali, A. M., Zaber, M., & Ali, A. A. (2020, June). What Can Nighttime Lights Tell Us about Bangladesh?. In 2020 IEEE Region 10 Symposium (TENSYMP) (pp. 1612-1615). IEEE.', 
@@ -218,7 +219,7 @@ $(document).ready(function(){
   }
 
   // publications
-  let data = readFromCSV_publications("conference")
+  let data = readFromCSV_publications("conference");
   let table_string = constructTable(data[0], data[1]);
   console.log("data ", data[0], data[1])
   console.log("table_string conference ", table_string)
@@ -285,6 +286,7 @@ $(document).ready(function(){
   });
 
 
-
+ 
+  
 
 });
