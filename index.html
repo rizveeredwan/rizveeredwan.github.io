@@ -2,230 +2,367 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="base.css">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-  <!-- Jquery dataTables -->
-  <link href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" rel="stylesheet" />
-  <!-- MDB -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet" />
-  <!-- D3 -->
-  <style>
-    .scrollable-update-div {
-        /*width: 300px; Set the width of the div */
-        height: 300px; /* Set the height of the div */
-        overflow-y: scroll; /* Enable vertical scrolling */
-        border: 1px solid #ccc; /* Optional: Add a border for visibility */
-        padding: 10px; /* Optional: Add some padding */
-        box-sizing: border-box; /* Ensure padding doesn't affect width/height */
-    }
-</style>
-  <title>rizveeredwan</title>
+  <title>Redwan Ahmed Rizvee | PhD Student & Researcher</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <!-- Optional JavaScript; choose one of the two! -->
-  <!-- Option 1: Bootstrap Bundle with Popper -->
+<body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="100">
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <!-- JQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-  <!-- Jquery datatable -->
-  <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-
-
-  <!-- MDB -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
-
-  <!-- Jquery csv -- >
-    <script src="http://cdnlib.net/ar/jquery-csv/0.8.9/jquery.csv.min.js" integrity="sha512-2ypsPur7qcA+2JjmmIJR1c4GWFqTLIe1naXXplraMg0aWyTOyAMpOk+QL+ULpzwrO/GdwA3qB3FhVyyiR8gdhw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- D3 -->
-  <script src="d3.v7.min.js"></script>
-
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      <img class="center-block img-thumbnail rounded"  src="./resources/DSC_0118.jpg" />
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row center">
-    <div class="col-md-3">
-      <i class="fas fa-envelope-open"></i> rizveeredwan.csedu@gmail.com
-    </div>
-    <div class="col-md-3">
-      Linkedin
-    </div>
-    <div class="col-md-3">
-      Facebook
-    </div>
-    <div class="col-md-3">
-      Instagram
-    </div>
-  </div>
-</div>
--->
-
-  <div class="container" style="font-family:times;">
-    <div class="row">
-      <nav class="navbar navbar-expand-sm navbar-light bg-light ml-auto" id="normal_navigation" style="display:none;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        </div>
-      </nav>
-      <!-- Simulate a smartphone / tablet -->
-      <div class="mobile-container">
-
-        <!-- Top Navigation Menu -->
-        <div class="mobilenav" id="mobile_navigation" style="display:none;">
-          <a href="#home" style="color:#2e86c1;">Menu</a>
-          <div id="myLinks">
-            <!--
-          <a href="index.html">News</a>
-          <a href="experience.html">Contact</a>
-          <a href="projects.html">About</a>
-        -->
-          </div>
-          <a href="javascript:void(0);" class="icon" id="logo_button">
-            <i class="fa fa-bars"></i>
-          </a>
-        </div>
-        <!-- End smartphone / tablet look -->
+  <nav id="navbar-main" class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">R. A. Rizvee</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-lg-3 px-3 btn-sm mt-1" href="./resources/Resume_Redwan_Ahmed_Rizvee.pdf" target="_blank">Download CV</a></li>
+        </ul>
       </div>
-
     </div>
+  </nav>
 
-
-    <div style="margin-top:20px;">
-      <div class="grid-container">
-
-        <div class="grid-child">
-          <div class="green">
-            <figure>
-              <img src="./resources/DSC_0118.jpg" / class="center-block img-thumbnail rounded">
-              <!--<figcaption style="text-align:right;"><small><em>Photo credit: Azwad Anjum Islam</em></small></figcaption>-->
-            </figure>
+  <section id="about" class="d-flex align-items-center min-vh-100 section-padding">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 text-center order-lg-2 mb-4 mb-lg-0">
+          <div class="photo-wrapper">
+            <img src="./resources/DSC_0118.jpg" alt="Redwan Ahmed Rizvee" class="img-fluid rounded-circle shadow-lg profile-photo">
           </div>
-          <div>
-            <h1>Redwan Ahmed Rizvee</h1>
-          </div>
-          <div class="col">
-            <i class="far fa-envelope"></i><a style="margin-left:10px;" href="#">rizveeredwan.csedu@gmail.com</a>
-          </div>
-          <div class="col">
-            <i class="fa fa-paperclip"></i><a style="margin-left:10px;" href="./resources/Resume_Redwan_Ahmed_Rizvee.pdf" target="_blank" > <!-- download -->
-              CV
-            </a>
-          </div>
-          <div class="col">
-            <i class="fab fa-google"></i></i><a style="margin-left:10px;"
-              href="https://scholar.google.com/citations?hl=en&user=eblsTEQAAAAJ&view_op=list_works&authuser=2&gmla=AJsN-F6eg2KLglUFn1AWADQWCZLn07-z15MjnPXqkRuu4r0COlsd3L3CrFZePobkuTbpjUNu7D9F6j0lRGxuRXPI1HghSv5M8w">Google Scholar's Profile</a>
-          </div>
-          <div>
-            <a style="float:left; margin-right: 10px;" href="https://www.facebook.com/rizveeredwan/">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a style="float:left; margin-right: 10px; color:black;" href="https://www.github.com/rizveeredwan">
-              <i class="fab fa-github"></i>
-            </a>
-            <a style="float:left; color:#4169E1;" href="https://www.linkedin.com/in/rizveeredwan/">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
+        </div>
+        <div class="col-lg-8 order-lg-1">
+          <h1 class="display-4 fw-bold mb-3">Hi, I'm Redwan Ahmed Rizvee.</h1>
+          <h3 class="text-muted mb-4">PhD Student in CS @ <span class="text-primary">UMass Amherst</span></h3>
+          <p class="lead mb-4">
+            I study how to make massive datasets interpretable in real-time. As a researcher at the <a href="https://dream.cs.umass.edu/" class="fw-bold text-decoration-none">DREAM Lab</a>, advised by <a href="https://people.cs.umass.edu/~ameli/">Dr. Alexandra Meliou</a>, I develop <strong>Perception-Aware Sampling</strong> algorithms that bridge statistical learning theory with visual analytics.
+          </p>
+          <p class="text-secondary mb-5">
+            Previously, I was a Research Scientist at <strong>TigerIT</strong> and a Lecturer at the <strong>University of Dhaka</strong>. I am interested in Data Mining, Database Theory, and building scalable systems.
+          </p>
           
-          <!--
-          <div class="col">
-            <i class="fab fa-facebook"></i><a style="margin-left:10px;" href="https://www.facebook.com/rizveeredwan/">rizveeredwan</a>
+          <div class="d-flex gap-3">
+            <a href="mailto:rrizvee@umass.edu" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://scholar.google.com/citations?user=eblsTEQAAAAJ&hl=en" class="social-btn"><i class="fas fa-graduation-cap"></i> Scholar</a>
+            <a href="https://github.com/rizveeredwan" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/rizveeredwan" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.youtube.com/@rizveeredwan" class="social-btn"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://www.instagram.com/its_rizv" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
           </div>
-          <div class="col">
-            <i class="fab fa-github"></i></i><a style="margin-left:10px;" href="https://www.github.com/rizveeredwan">rizveeredwan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news" class="section-padding bg-light">
+    <div class="container">
+      <h2 class="section-title">Recent Updates</h2>
+      <div class="news-box bg-white p-4 rounded shadow-sm">
+        <ul class="list-unstyled mb-0">
+          <li class="mb-3">
+              <span class="badge bg-primary me-2">Sep 2025</span>
+              Started PhD at <strong>UMass Amherst</strong> under Dr. Alexandra Meliou.
+          </li>
+          <li class="mb-3">
+            <span class="badge bg-secondary me-2">Nov 2024</span>
+            Paper <em>"A tree-based framework to mine top-K closed sequential patterns"</em> accepted in <strong>Applied Intelligence</strong>.
+          </li>
+          
+
+          <div class="collapse" id="newsCollapse">
+            <li class="mb-3">
+              <span class="badge bg-success me-2">Nov 2024</span>
+              Paper on <em>"Reinforcement Learning Based Formulations"</em> accepted in <strong>IEEE Access</strong>.
+            </li>
+            <!--<li class="mb-3">
+              <span class="badge bg-dark me-2">Jan 2024</span>
+              Our paper "LeafNet" was cited 50+ times in the last year.
+            </li>
+            <li class="mb-3">
+              <span class="badge bg-info text-dark me-2">Dec 2023</span>
+              Presented work at the International Conference on Data Mining.
+            </li>-->
           </div>
-          <div class="col">
-            <i class="fab fa-linkedin"></i></i><a style="margin-left:10px;" href="https://www.linkedin.com/in/rizveeredwan/">rizveeredwan</a>
+
+        </ul>
+
+        <button class="btn btn-link text-decoration-none fw-bold p-0 mt-2" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#newsCollapse" 
+                aria-expanded="false" 
+                aria-controls="newsCollapse"
+                id="newsBtn"
+                onclick="toggleBtnText(this)">
+          See More <i class="fas fa-chevron-down"></i>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Selected Publications</h2>
+      <p class="text-muted mb-5">For a full list, please visit my <a href="https://scholar.google.com/citations?user=eblsTEQAAAAJ&hl=en">Google Scholar</a>.</p>
+      
+      <div class="publication-card mb-4">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="fw-bold">A new tree-based approach to mine sequential patterns</h5>
+            <p class="mb-1 text-muted"><em>Expert Systems with Applications, 2024</em></p>
+            <p class="mb-2"><strong>R. A. Rizvee</strong>, C. F. Ahmed, M. F. Arefin, C. K. Leung</p>
+            <div class="d-flex gap-2">
+              <a href="https://doi.org/10.1016/j.eswa.2023.122754" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-link"></i> DOI</a>
+              <a href="#" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-file-pdf"></i> PDF</a>
+            </div>
           </div>
-        -->
+        </div>
+      </div>
+
+      <div class="publication-card mb-4">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="fw-bold">Reinforcement Learning-Based Formulations With Hamiltonian-Inspired Loss Functions</h5>
+            <p class="mb-1 text-muted"><em>IEEE Access, 2024</em></p>
+            <p class="mb-2"><strong>R. A. Rizvee</strong>, R. Hassan, M. M. Khan</p>
+            <div class="d-flex gap-2">
+              <a href="https://ieeexplore.ieee.org/document/10595333" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-link"></i> Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="publicationCollapse">
+        
+        <div class="publication-card mb-4">
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="fw-bold">A Tree-Based Framework to Mine Top-K Closed Sequential Patterns</h5>
+                <p class="mb-1 text-muted"><em>Applied Intelligence, 2025</em></p>
+                <p class="mb-2"><strong>R. A. Rizvee</strong>, C. F. Ahmed, C. K. Leung</p>
+                <div class="d-flex gap-2">
+                  <a href="https://doi.org/10.1007/s10489-024-06137-y" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-link"></i> DOI</a>
+                </div>
+              </div>
+            </div>
         </div>
 
-        <div class="grid-child">
-          <div>
-            <p>I am Redwan Ahmed Rizvee, currently pursuing PhD in Computer Science at University of Massachusetts Amherst. I am part of DREAM Lab 
-              (<a href="https://dream.cs.umass.edu/">Link</a>) and fortunate enough to work under the supervision of 
-              <a href="https://people.cs.umass.edu/~ameli/">Dr. Alexandra Meliou</a>. 
-              My current research focuses on the challenge of making datasets interpretable and explainable in real-time. I develop 
-              <b>perception-aware sampling algorithms</b> that bridge statistical learning theory with computational aspects to preserve visual fidelity in big data visualization. 
-              Broadly, I am interested in <b>Data Mining, Data Analytics</b> and <b>Database Theory</b>, specifically designing scalable systems. 
-            <p>
-              I completed my B.Sc and MS from the same department, <a href="https://du.ac.bd/body/CSE">Department of Computer Science and Engineering, University of Dhaka (CSEDU)</a>. In the past I worked as a Lecturer in the Department of Computer Science and Engineering at <a href="https://fse.ewubd.edu/computer-science-engineering">East West University</a> from 2022 to 2023. I also worked as a research scientist in <a href="https://www.tigerit.com/">TigerIT Bangladesh
-                Limited</a> from 2021 to 2022. I have been an active member of our Data Mining and Machine Learning Research Lab since my undergrad. I am also a part of <a href="https://cognistorm.ai/">Cognitive Agents and Interaction Lab</a>, working as a Co-Investigator with <a href="https://www.du.ac.bd/faculty/faculty_details/CSE/2557">Dr. Mosaddek Khan</a>. I have completed my B.Sc and MS thesis under the supervision of <a href="https://www.du.ac.bd/faculty/faculty_details/CSE/1770">Dr. Chowdhury Farhan Ahmed</a>. 
-                <!--My research interests include <strong>Deep Learning, Data Mining, Programming Languages and Systems</strong>.  -->
-            </p>
-            <p>
-              I love to learn new things and think about different research problems. I also love to take photos and watch zillions of movies and series. You can find a glimpse of those <a href="www.instagram.com/its_rizv">here</a>. 
-            </p>
-            <p><strong> One of my favorite personal projects, <a href="https://cognistorm.ai/colas" style="color:red;">COLAS - Copy Checker for Detecting Source Code Plagiarism</a>, where I built everything from scratch is currently online. Please have a look and let me know your feedback! I will work on it to improve the quality. <strong style="color:red;">COLAS Contest Platform</strong> is also online! Please have a look here <a href="https://contest.cognistorm.ai/dashboard">[COLAS-CONTEST]</a>.</strong></p>
+        <div class="publication-card mb-4">
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="fw-bold">Revival of Muslin by Phuti Karpas plant identification with convolution neural network</h5>
+                <p class="mb-1 text-muted"><em>Array, 2025</em></p>
+                <p class="mb-2"><strong>R. A. Rizvee</strong>, et al.</p>
+                <div class="d-flex gap-2">
+                  <a href="https://doi.org/10.1016/j.array.2025.100428" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-link"></i> DOI</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="publication-card mb-4">
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="fw-bold">LeafNet: A proficient convolutional neural network for detecting seven prominent mango leaf diseases</h5>
+                <p class="mb-1 text-muted"><em>Journal of Agriculture and Food Research, 2023</em></p>
+                <p class="mb-2"><strong>R. A. Rizvee</strong>, et al.</p>
+                <div class="d-flex gap-2">
+                  <a href="https://doi.org/10.1016/j.jafr.2023.100787" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-link"></i> DOI</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="publication-card mb-4">
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="fw-bold">Towards Immutability: A Secure and Efficient Auditing Framework for Cloud Supporting Data Integrity</h5>
+                <p class="mb-1 text-muted"><em>IEEE GLOBECOM, 2023</em></p>
+                <p class="mb-2">F. H. Bappy, ... <strong>R. A. Rizvee</strong>, et al.</p>
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-link"></i> Link</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="publication-card mb-4">
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="fw-bold">Tree-miner: mining sequential patterns from sp-tree</h5>
+                <p class="mb-1 text-muted"><em>PAKDD (Pacific-Asia Conference on Knowledge Discovery and Data Mining), 2020</em></p>
+                <p class="mb-2"><strong>R. A. Rizvee</strong>, M. F. Arefin, C. F. Ahmed</p>
+                <div class="d-flex gap-2">
+                  <a href="https://link.springer.com/chapter/10.1007/978-3-030-47426-3_39" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-link"></i> DOI</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <div class="publication-card mb-4">
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="fw-bold">What Can Nighttime Lights Tell Us about Bangladesh?</h5>
+                <p class="mb-1 text-muted"><em>IEEE Region 10 Symposium (TENSYMP), 2020</em></p>
+                <p class="mb-2">M. Wahed, <strong>R. A. Rizvee</strong>, et al.</p>
+                <div class="d-flex gap-2">
+                  <a href="https://ieeexplore.ieee.org/document/9230919" class="btn btn-outline-dark btn-sm rounded-pill"><i class="fas fa-link"></i> DOI</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+      </div>
+
+      <button class="btn btn-link text-decoration-none fw-bold p-0 mt-2" type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#publicationCollapse" 
+              aria-expanded="false" 
+              aria-controls="publicationCollapse"
+              id="publicationBtn"
+              onclick="toggleBtnText(this)">
+        See More <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </section>
+
+  <section id="projects" class="section-padding bg-light">
+    <div class="container">
+      <h2 class="section-title">Software & Tools</h2>
+      <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+          <div class="card project-card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <i class="fas fa-code fa-2x text-primary"></i>
+                <a href="https://code.cognistorm.ai/" class="text-dark"><i class="fas fa-external-link-alt fa-lg"></i></a>
+              </div>
+              <h5 class="card-title fw-bold">COLAS</h5>
+              <p class="card-text text-muted small">An automated source code evaluation system for competitive programming labs. Features plagiarism detection, strict monitoring, and Dockerized execution.</p>
+              <div class="mt-3">
+                <span class="badge bg-light text-dark border">Python</span>
+                <span class="badge bg-light text-dark border">React</span>
+                <span class="badge bg-light text-dark border">Docker</span>
+              </div>
+            </div>
           </div>
-          <div>
-            N.B:  Currently, on study leave, I have been working as a Lecturer in the <a href="https://www.du.ac.bd/faculty/faculty_details/CSE/61070">Department of Computer Science and Engineering, University of Dhaka, Bangladesh</a>. 
-              </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card project-card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <i class="fas fa-chart-line fa-2x text-success"></i>
+                <a href="https://bdqol.dndlab.org/" class="text-dark"><i class="fas fa-external-link-alt fa-lg"></i></a>
+              </div>
+              <h5 class="card-title fw-bold">BDQOL</h5>
+              <p class="card-text text-muted small">Bangladesh Quality of Life Indicator. A visualization tool to demonstrate the socio-economic condition of Bangladesh based on SDG indicators.</p>
+              <div class="mt-3">
+                <span class="badge bg-light text-dark border">D3.js</span>
+                <span class="badge bg-light text-dark border">Data Viz</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card project-card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <i class="fas fa-language fa-2x text-warning"></i>
+                <a href="https://github.com/rizveeredwan/MSCLM-A" class="text-dark"><i class="fab fa-github fa-lg"></i></a>
+              </div>
+              <h5 class="card-title fw-bold">MSCLM-A</h5>
+              <p class="card-text text-muted small">Memory flexible language-independent sentence completion module using Arpa-based Language Models.</p>
+              <div class="mt-3">
+                <span class="badge bg-light text-dark border">NLP</span>
+                <span class="badge bg-light text-dark border">Python</span>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
-      
+    </div>
+  </section>
 
-  </div>
+  <section id="experience" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-dot bg-primary"></div>
+          <div class="timeline-content">
+            <h5 class="fw-bold">Graduate Research Assistant</h5>
+            <p class="text-primary mb-1">DREAM Lab, UMass Amherst | 2025 - Present</p>
+            <p class="text-muted small">Developing perception-aware sampling algorithms for big data visualization.</p>
+          </div>
+        </div>
 
-  <div>
-    <h1>Recent News</h1>
-    <div class="scrollable-update-div">
-      <!-- Content goes here -->
-      <ul>
-        <li><b>[November 30, 2024]</b> Our Paper "A tree-based framework to mine top-K closed sequential patterns" got accepted in <b>Applied Intelligence</b></li>
-        <li><b>[November 14, 2024]</b> Our Paper "Reinforcement Learning Based Formulations with Hamiltonian-Inspired Loss Functions for Combinatorial Optimization over Graphs" Got Accepted in <b>IEEE Access</b>.</li>
-      </ul>
-   </div>
-  </div>
+        <div class="timeline-item">
+          <div class="timeline-dot bg-secondary"></div>
+          <div class="timeline-content">
+            <h5 class="fw-bold">Lecturer</h5>
+            <p class="text-primary mb-1">University of Dhaka | 2023 - (On Leave)</p>
+            <p class="text-muted small">Taught Software Design Patterns, OOP, and Software Engineering.</p>
+          </div>
+        </div>
 
-  <div>
-    <h1>Teaching Resources</h1>
-    <ul>
-        East West University
-        <li><a href="https://github.com/rizveeredwan/course-contents/tree/main/EWU/CSE-246">Algorithms</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1cgxyFiVwPT3hGHTkiMDeIWG-1eBXG0Jz?usp=sharing">Artificial Intelligence</a></li>
-        University of Dhaka
-        <li><a href="https://github.com/rizveeredwan/course-contents/tree/main/CSE-2102">Object Oriented Programming</a></li>
-        <li><a href="https://github.com/rizveeredwan/course-contents/tree/main/CSE-3216">Software Design Patterns</a></li>
-        University of Barishal
-        <li><a href="https://drive.google.com/drive/folders/1Cs-pBY2Z22aJXiU881-Je5POfO1VDf46?usp=sharing">Integral Calculus, Ordinary and Partial Differential Equations and Series Solutions</a></li>
-    </ul>
-  </div>
+        <div class="timeline-item">
+          <div class="timeline-dot bg-dark"></div>
+          <div class="timeline-content">
+            <h5 class="fw-bold">Lecturer </h5>
+            <p class="text-primary mb-1">East West University | 2022 - 2023 </p>
+            <p class="text-muted small">Taught Algorithms, Artificial Intelligence & Structured Programming.</p>
+          </div>
+        </div>
 
-  <!-- footer -->
-  <div class="content">
-    <div class="push"></div>
-  </div>
-  <footer class="footer">
+        <div class="timeline-item">
+          <div class="timeline-dot bg-dark"></div>
+          <div class="timeline-content">
+            <h5 class="fw-bold">Research Scientist</h5>
+            <p class="text-primary mb-1">TigerIT Bangladesh Ltd | 2020 - 2022</p>
+            <p class="text-muted small">Worked on biometric systems, neural network architectures, and large-scale rule-based systems.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0 small">&copy; 2025 Redwan Ahmed Rizvee. Built with Bootstrap 5.</p>
+      <div class="mt-2">
+        <a href="https://github.com/rizveeredwan" class="text-white-50 mx-2"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/rizveeredwan/" class="text-white-50 mx-2"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
   </footer>
-</div>
 
-      <script src="base.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
+<script>
+  function toggleBtnText(btn) {
+    if (btn.innerHTML.includes("More")) {
+      btn.innerHTML = 'See Less <i class="fas fa-chevron-up"></i>';
+    } else {
+      btn.innerHTML = 'See More <i class="fas fa-chevron-down"></i>';
+    }
+  }
+</script>
 </html>
