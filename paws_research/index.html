@@ -21,7 +21,14 @@
 
         input[type=range] { accent-color: var(--purple); cursor: pointer; width: 100%; margin: 8px 0; }
         
-        .app-container { display: grid; grid-template-columns: 1fr 350px 300px; grid-template-rows: 60px calc(100vh - 60px); height: 100vh; }
+        .app-container { 
+            display: grid; 
+            grid-template-columns: 1fr 350px 300px; 
+            grid-template-rows: 60px calc(100vh - 60px); 
+            height: 100vh; 
+            width: 100vw; /* <-- This is the magic fix! */
+        }
+
         header { grid-column: 1 / -1; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; font-weight: 700; font-size: 18px; color: var(--cyan); }
 
         .viz-col { padding: 24px; display: flex; flex-direction: column; }
@@ -116,9 +123,41 @@
             background: rgba(255, 255, 255, 0.85);
             box-shadow: 0 12px 32px rgba(0,0,0,0.1);
         }
+
     </style>
 </head>
 <body>
+
+    <body>
+
+<div id="fullScreenIntro" style="position: fixed; inset: 0; z-index: 9999; background: rgba(15, 15, 20, 0.85); backdrop-filter: blur(16px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
+    <div style="max-width: 650px; background: var(--surface); padding: 40px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 24px 64px rgba(0,0,0,0.6);">
+        <h3 style="font-size: 22px; color: var(--cyan); margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 28px;">📊</span> Student Performance Database
+        </h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 24px; font-size: 15px; color: var(--text); line-height: 1.6;">
+            <div style="display: flex; gap: 16px; align-items: start;">
+                <div style="font-size: 22px; line-height: 1;">🔍</div>
+                <div>I am Trisa. Currently, I am working with a student performance database. I am planning to explore different kinds of relationships here. For example, observing the performance in grades vs study time is a potential one.</div>
+            </div>
+            
+            <div style="display: flex; gap: 16px; align-items: start;">
+                <div style="font-size: 22px; line-height: 1;">⚙️</div>
+                <div>It is easy to do a rendering of the complete data once. But to actively explore different relations, repeated rendering of the complete data is a computationally heavy operation.</div>
+            </div>
+            
+            <div style="display: flex; gap: 16px; align-items: start;">
+                <div style="font-size: 22px; line-height: 1;">🎯</div>
+                <div>What if I proceed with a sample? From the metadata, I know this dataset has around 10,150 entries. I can proceed with a <span class="txt-highlight">sample of 1000 points (~10%)</span>, which should be fairly enough!</div>
+            </div>
+        </div>
+        
+        <button class="btn btn-cyan" style="width: 100%; margin-top: 40px; font-size: 15px; padding: 14px; font-weight: bold;" onclick="startApp()">🚀 Start Application Workflow</button>
+    </div>
+</div>
+
+<div class="app-container">
 
 <div class="app-container">
    <header style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
@@ -140,11 +179,16 @@
                 <input type="range" min="0.5" max="5.0" step="0.1" value="2.0" style="width: 100px; margin: 0; accent-color: var(--cyan);" oninput="changeGlobalMarkerSize(this.value)">
             </div>
         </div>
-        <div class="viz-wrapper">
+      <div class="viz-wrapper">
             <div id="vizLegend" class="legend-panel hidden"></div>
             <div id="annotationsLayer" class="annotation-layer"></div>
-            <div class="canvas-container" id="canvasArea">
-                <div style="color: var(--text2); text-align: center; position: relative; z-index: 5;" id="canvasMsg">[ Awaiting Data ]</div>
+            
+            <div class="canvas-container" id="canvasArea" style="position: relative;">
+                
+                <div id="canvasMsg" style="position: absolute; z-index: 5; color: var(--text2); display: none;"></div>
+                
+              
+
             </div>
         </div>
         
@@ -254,11 +298,8 @@
             <div class="step-label" style="color: var(--gold);"><span class="step-num">5</span> Human Visual Targets</div>
             <div style="font-size: 13px; color: var(--text2); margin-bottom: 12px;">Observe which areas naturally attract human visual attention.</div>
             <div id="step7Toggles" style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                <div class="layer-toggle step7-toggle step7-gazes active" onclick="toggleStep7Gazes()">
-                    <span style="display:flex; align-items:center; gap:10px;">⭕ Toggle Attention Targets</span><span class="icon-eye">👁️</span>
-                </div>
-                <div class="layer-toggle step7-toggle step7-comments active" onclick="toggleStep7Comments()">
-                    <span style="display:flex; align-items:center; gap:10px;">💬 Toggle Observations</span><span class="icon-eye">👁️</span>
+                <div class="layer-toggle step7-toggle active" onclick="toggleStep7All()">
+                    <span style="display:flex; align-items:center; gap:10px;">⭕ Toggle Visual Focus & Observations</span><span class="icon-eye">👁️</span>
                 </div>
             </div>
             <button class="btn btn-green" id="btnGoStep8" style="margin-top: 15px;" onclick="transitionToStep8()">➡️ Identify visual focus computationally</button>
@@ -326,7 +367,7 @@
         </div>
         <div id="chatLog" style="display: flex; flex-direction: column; gap: 12px;">
             <div class="chat-bubble">
-                I am working with a student performance database. I am planning to explore different kinds of relationships here. For example, observing the performance in grades vs study time is a potential one. <br><br>It is easy to do a rendering of the complete data once. But to actively explore different relations, repeated rendering of the complete data is a computationally heavy operation.<br><br>What if I proceed with a sample? From the metadata, I know this dataset has around 10,150 entries. I can proceed with a <span class="txt-highlight">sample of 1000 points (~10%)</span>, which should be fairly enough!<br><br>Random sampling is a quite popular approach. Let's observe its sample by pressing the <strong><span class="txt-warning">Generate Random Sample</span></strong> button.
+                Let's first understand my current scenario!
             </div>
         </div>
     </div>
@@ -373,7 +414,9 @@
         'random': `<strong>Random Sampling:</strong><br><br>It's <span class="txt-success">very fast</span>, but I <span class="txt-danger">could not make the left smaller cluster visible</span> even with a higher sample size.`,
         'vas': `<strong>Visualization-Aware Sampling (VAS) [1]:</strong><br><br>VAS takes a <span class="txt-danger">lot of time</span> to compute its sample.<br><br>VAS optimizes for the final rendered plot. Because dense areas suffer from overplotting, it determines that sampling more points from there won't change the visual output. <br><br>Instead, it spends its budget on covering different regions. It captures <span class="txt-concept">cluster shapes</span>, but within smaller budget often fails to preserve <span class="txt-warning">density characteristics</span> and <span class="txt-warning">boundary separation</span>.`,
         'density': `<strong>Density-Biased Sampling (DBS):</strong><br><br>DBS is also <span class="txt-success">very fast</span>. <br><br>I can see that DBS focuses on preserving different <span class="txt-concept">dense regions</span> of the data. However, if there is a significant density imbalance, it is <span class="txt-warning">favoring the denser regions</span> and ignoring the sparser ones.`,
-        'blue_noise': `<strong>Blue-Noise Sampling [2]:</strong><br><br>Blue-noise samples the data points by enforcing a minimum spatial distance among them.<br><br>Rather than being cluttered, this naturally forces the sample to spread out and <span class="txt-success">preserves smaller trends along with larger ones</span>. However, calculating those distance constraints makes it <span class="txt-danger">computationally very expensive</span>.`,
+        
+        'blue_noise': `<strong>Blue-Noise Sampling [2]:</strong><br><br>Blue-noise samples the data points by enforcing a minimum spatial distance among them.<br><br>Rather than being cluttered, this naturally forces the sample to spread out. However, calculating those distance constraints makes it <span class="txt-danger">computationally very expensive</span>, and <strong>in smaller budgets, the smaller clusters are not as visible</strong>.`,
+
         'max_min': `<strong>Max-Min Sampling [3]:</strong><br><br>Max-min searches for empty space to cover the plot by always selecting the point that is globally <span class="txt-concept">furthest away</span> from the already sampled points.<br><br>While this encourages spatial coverage, it treats noise and massive cores equally, which <span class="txt-danger">harms the relative density</span> of the clusters, making them inseparable for smaller budgets.`
     };
 
@@ -440,6 +483,24 @@
         APP_STATE.markerSize = parseFloat(val);
         document.getElementById('markerSizeDisplay').innerText = APP_STATE.markerSize.toFixed(1);
         redrawCurrentCanvas();
+    }
+
+   function startApp() {
+        // 1. Hide the full-screen onboarding modal smoothly
+        const modal = document.getElementById('fullScreenIntro');
+        modal.style.transition = 'opacity 0.4s ease';
+        modal.style.opacity = '0';
+        setTimeout(() => modal.style.display = 'none', 400);
+
+        // 2. Draw the empty canvas axes
+        initCanvas();
+
+        // 3. Update Trisa's chat to prompt the very first action!
+        const initChat = `Let's observe a sample by pressing the <strong><span class="txt-warning">Generate Random Sample</span></strong> button.`;
+        updateChat(initChat);
+        
+        // 4. Update the TOUR_STEPS so it remembers this if they navigate back
+        TOUR_STEPS[1].chat = initChat;
     }
 
     function executeStep(stepNum) {
@@ -550,7 +611,7 @@
         document.getElementById('btnStep1').style.display = 'none';
         document.getElementById('step1Toggles').style.display = 'flex';
         
-        const postSampleChat = `Wow, that was <span class="txt-success">fast!</span><br><br>I see <strong><span class="txt-gold">3 obvious clusters</span></strong>, probably corresponding to 3 different course sections, and spread outliers that I can probably ignore for the moment.<br><br>I will dive into these particular clusters to better understand their differences and impact of other factors, and build my report.<br><br>Let's move to <strong>Step 2</strong> to apply this workflow to the complete data!`;
+        const postSampleChat = `Wow, that was <span class="txt-success">fast!</span><br><br>I see <strong><span class="txt-gold">3 obvious clusters</span></strong>, probably corresponding to 3 different course sections, and spread outliers that I can probably ignore for the moment.<br><br>I will dive into these particular clusters to better understand their differences and impact of other factors, and build my report.<br><br>Let's move to <strong>Step 2</strong> to <span class="txt-highlight"> finalize this workflow to the complete data!</span>`;
         updateChat(postSampleChat);
         TOUR_STEPS[1].chat = postSampleChat;
         
@@ -585,9 +646,9 @@
             const c3_x = pad + (0.65 * plotW); const c3_y = (container.clientHeight - pad) - (0.6 * plotH);
 
             layer.innerHTML = `
-                <div style="position: absolute; border: 2px dashed var(--orange); border-radius: 50%; transform: translate(-50%, -50%); width: 130px; height: 130px; left: ${c1_x}px; top: ${c1_y}px; background: rgba(${colors.random}, 0.05);"></div>
-                <div style="position: absolute; border: 2px dashed var(--orange); border-radius: 50%; transform: translate(-50%, -50%); width: 130px; height: 130px; left: ${c2_x}px; top: ${c2_y}px; background: rgba(${colors.random}, 0.05);"></div>
-                <div style="position: absolute; border: 2px dashed var(--orange); border-radius: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; left: ${c3_x}px; top: ${c3_y}px; background: rgba(${colors.random}, 0.05);"></div>
+                <div style="position: absolute; border: 2px dashed var(--cyan); border-radius: 50%; transform: translate(-50%, -50%); width: 130px; height: 130px; left: ${c1_x}px; top: ${c1_y}px; background: rgba(${colors.random}, 0.05);"></div>
+                <div style="position: absolute; border: 2px dashed var(--cyan); border-radius: 50%; transform: translate(-50%, -50%); width: 130px; height: 130px; left: ${c2_x}px; top: ${c2_y}px; background: rgba(${colors.random}, 0.05);"></div>
+                <div style="position: absolute; border: 2px dashed var(--cyan); border-radius: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; left: ${c3_x}px; top: ${c3_y}px; background: rgba(${colors.random}, 0.05);"></div>
             `;
         } else { layer.innerHTML = ''; }
     }
@@ -643,6 +704,7 @@
         } else { layer.innerHTML = ''; }
     }
 
+    
     function toggleLayer(layerName, targetStep) {
         APP_STATE.layers[layerName] = !APP_STATE.layers[layerName];
         document.querySelectorAll(`.toggle-${layerName}`).forEach(el => {
@@ -683,11 +745,14 @@
         const cx2 = pad + (0.90 * plotW); const cy2 = (container.clientHeight - pad) - (0.15 * plotH);
 
         if(APP_STATE.layers.annotations) {
+            const cw = container.clientWidth;
+            
             layer.innerHTML = `
-                <div class="chart-annotation" style="border-left-color: var(--orange); left: ${cx1}px; top: ${cy1}px;">
+                <div class="chart-annotation" style="left: ${cx1}px; top: ${cy1}px; border-left-color: var(--orange); max-width: 42%;">
                     <div class="anno-title">Lost cluster-I</div>Random sample missed this smaller left cluster.
                 </div>
-                <div class="chart-annotation right-align" style="border-right-color: var(--orange); left: ${cx2 - 260}px; top: ${cy2 - 60}px;">
+                
+                <div class="chart-annotation right-align" style="right: ${cw - cx2}px; top: ${cy2 - 40}px; border-right-color: var(--orange); max-width: 42%;">
                     <div class="anno-title">Lost cluster-II</div>It did not sample enough points to preserve this cluster.
                 </div>
             `;
@@ -732,12 +797,9 @@
         
        if (APP_STATE.step5.visitedSamplers.length === 5 && !APP_STATE.step5.proceedClicked) {
             const btnTakeaways = document.getElementById('btnToggle5Takeaways');
-            const btnNext = document.getElementById('btnGoStep7');
-            
             if (btnTakeaways) btnTakeaways.style.display = 'flex'; 
-            if (btnNext) btnNext.style.display = 'flex'; 
             
-            chatText += `<br><br><div style="border-top: 1px dashed var(--border); padding-top: 12px; margin-top: 8px;"><strong><span class="txt-success">All algorithms explored!</span></strong><br>Click <strong>💡 Toggle Evaluation Takeaways</strong> to see a summary of the samplers, then click <strong>Proceed to pinpoint visual targets</strong> to understand where our eyes focus!</div>`;
+            chatText += `<br><br><div style="border-top: 1px dashed var(--border); padding-top: 12px; margin-top: 8px;"><strong><span class="txt-success">All algorithms explored!</span></strong><br>Click <strong>💡 Toggle Evaluation Takeaways</strong> to see a summary of the samplers!</div>`;
             setTimeout(() => { document.getElementById('colControls').scrollTo({ top: document.getElementById('colControls').scrollHeight, behavior: 'smooth' }); }, 100);
         }
 
@@ -754,6 +816,9 @@
         if (APP_STATE.step5.showTakeaways) {
             el.classList.add('active'); 
             el.querySelector('.icon-eye').innerText = '👁️';
+            
+            // UNLOCK THE PROCEED BUTTON HERE!
+            document.getElementById('btnGoStep7').style.display = 'flex';
             
             // THE NEW NARRATIVE UPDATE:
             const takeawayChat = `Wow, exploring all these algorithms reveals a clear pattern! I've overlaid the key takeaways directly onto the plot.<br><br>We can see that standard algorithms are forced to trade off between preserving <strong>Density</strong> (Statistical) and maximizing <strong>Distance</strong> (Coverage). Blue-Noise tries to do both, but at a massive computational cost.<br><br>The conclusion is clear: to get the perfect sample without breaking the budget, we must explicitly define which regions of the visualization attract human attention. <br><br><strong>Click "Proceed to Human Visual Targets" below to continue!</strong>`;
@@ -814,24 +879,24 @@
 
             // Notice: The inline 'background: ...' properties have been entirely removed!
             layer.innerHTML = `
-                <div class="chart-annotation" style="left: ${pad}px; top: 20px; border-left-color: var(--orange); width: 280px;">
-                    <div class="anno-title" style="color: var(--orange);">1. Statistical (Random, DBS)</div>
+                <div class="chart-annotation" style="left: ${pad}px; top: 20px; border-left-color: var(--orange); width: 300px; font-size: 13.5px; padding: 16px;">
+                    <div class="anno-title" style="color: var(--orange); font-size: 12px;">1. Statistical (Random, DBS)</div>
                     Capture dense areas, but fail to map boundaries, shapes, or isolated smaller trends.
                 </div>
                 
-                <div class="chart-annotation right-align" style="left: ${cw - 300 - pad}px; top: 20px; border-right-color: var(--purple); width: 280px;">
-                    <div class="anno-title" style="color: var(--purple);">2. Coverage (VAS, Max-Min)</div>
+                <div class="chart-annotation right-align" style="left: ${cw - 320 - pad}px; top: 20px; border-right-color: var(--purple); width: 300px; font-size: 13.5px; padding: 16px;">
+                    <div class="anno-title" style="color: var(--purple); font-size: 12px;">2. Coverage (VAS, Max-Min)</div>
                     Optimize for maintaining distance among the sampled points. Great coverage, but destroys relative density patterns.
                 </div>
                 
-                <div class="chart-annotation" style="left: ${pad}px; top: ${ch - 130 - pad}px; border-left-color: var(--pink); width: 280px;">
-                    <div class="anno-title" style="color: var(--pink);">3. Balanced (Blue-Noise)</div>
-                    Enforces distance constraints to capture both spread and clusters, but computationally quite expensive.
+                <div class="chart-annotation" style="left: ${pad}px; top: ${ch - 140 - pad}px; border-left-color: var(--pink); width: 300px; font-size: 13.5px; padding: 16px;">
+                    <div class="anno-title" style="color: var(--pink); font-size: 12px;">3. Balanced (Blue-Noise)</div>
+                    Enforces distance constraints. Computationally very expensive, and smaller clusters are not visible in small samples.
                 </div>
                 
-                <div class="chart-annotation right-align" style="left: ${cw - 300 - pad}px; top: ${ch - 145 - pad}px; border-right-color: var(--cyan); width: 280px; border: 1px solid var(--cyan);">
-                    <div class="anno-title" style="color: var(--cyan); font-size: 13px;">Conclusion</div>
-                    To get a perfect sample, we must explicitly define which regions attract human attention, and force the algorithm to preserve them!
+                <div class="chart-annotation right-align" style="left: ${cw - 360 - pad}px; top: ${ch - 170 - pad}px; border-right-color: var(--cyan); width: 340px; border: 1px solid var(--cyan); font-size: 14px; padding: 20px;">
+                    <div class="anno-title" style="color: var(--cyan); font-size: 14px;">Conclusion</div>
+                    <strong>Existing objectives miss the mark.</strong> We need a different objective that allows samples to better capture areas of interest. Therefore, we must understand what humans care about in a visualization!
                 </div>
             `;
         } else {
@@ -852,15 +917,15 @@
         setTimeout(() => { document.getElementById('colControls').scrollTo({ top: 9999, behavior: 'smooth' }); }, 100);
     }
 
-    function toggleStep7Gazes() {
-        APP_STATE.step7.gazes = !APP_STATE.step7.gazes; const el = document.querySelector('.step7-gazes');
-        el.classList.toggle('active', APP_STATE.step7.gazes); el.querySelector('.icon-eye').innerText = APP_STATE.step7.gazes ? '👁️' : '❌';
-        renderStep7Canvas();
-    }
-
-    function toggleStep7Comments() {
-        APP_STATE.step7.comments = !APP_STATE.step7.comments; const el = document.querySelector('.step7-comments');
-        el.classList.toggle('active', APP_STATE.step7.comments); el.querySelector('.icon-eye').innerText = APP_STATE.step7.comments ? '👁️' : '❌';
+    
+    function toggleStep7All() {
+        APP_STATE.step7.gazes = !APP_STATE.step7.gazes;
+        APP_STATE.step7.comments = APP_STATE.step7.gazes; // Keep them synced
+        
+        const el = document.querySelector('.step7-toggle');
+        el.classList.toggle('active', APP_STATE.step7.gazes); 
+        el.querySelector('.icon-eye').innerText = APP_STATE.step7.gazes ? '👁️' : '❌';
+        
         renderStep7Canvas();
     }
 
@@ -1229,6 +1294,12 @@
     
     // Start the navigation engine!
     enableNonLinearNavigation();
+
+    // Redraw the canvas cleanly when the browser window is resized
+    window.addEventListener('resize', () => {
+        clearTimeout(window.resizeTimer);
+        window.resizeTimer = setTimeout(redrawCurrentCanvas, 150);
+    });
 
 </script>
 
