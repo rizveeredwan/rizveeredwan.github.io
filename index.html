@@ -12,6 +12,202 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
+
+  <!-- Additions for the featured COLAS project and the photography note. -->
+  <style>
+    #colas, #beyond-research { scroll-margin-top: 100px; }
+    .colas-feature {
+      --colas-ink: #172a46;
+      --colas-muted: #52637a;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+      border: 1px solid #dce5f0;
+      border-top: 4px solid #0d6efd;
+      border-radius: 1rem;
+      background: #fff;
+      color: var(--colas-ink);
+      box-shadow: 0 8px 28px rgba(23, 42, 70, .04);
+    }
+    .colas-feature .colas-eyebrow {
+      margin-bottom: 1rem;
+      color: #34577e;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .colas-feature .colas-title {
+      margin: 0 0 .3rem;
+      color: var(--colas-ink);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -.04em;
+    }
+    .colas-feature .colas-subtitle { color: var(--colas-muted); font-size: 1.05rem; }
+    .colas-feature .colas-role {
+      display: inline-block;
+      margin: .6rem 0 1.1rem;
+      padding: .4rem .7rem;
+      border-radius: .4rem;
+      background: #eaf2ff;
+      color: #194a90;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+    .colas-feature .colas-description { color: var(--colas-muted); line-height: 1.8; }
+    .colas-feature .colas-contribution {
+      padding-left: 1rem;
+      border-left: 2px solid #c9daf2;
+      color: var(--colas-muted);
+      font-size: .92rem;
+      line-height: 1.75;
+    }
+    .colas-feature .colas-contribution strong { color: var(--colas-ink); }
+    .colas-feature .colas-capabilities {
+      height: 100%;
+      padding: 1.4rem;
+      border: 1px solid #e2e9f2;
+      border-radius: .75rem;
+      background: #f7f9fc;
+    }
+    .colas-feature .colas-capability + .colas-capability {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dce5f0;
+    }
+    .colas-feature .colas-capability h4 { margin-bottom: .35rem; font-size: .95rem; font-weight: 700; }
+    .colas-feature .colas-capability p { margin: 0; color: var(--colas-muted); font-size: .875rem; line-height: 1.65; }
+    .colas-feature .colas-tech {
+      display: inline-block;
+      padding: .3rem .65rem;
+      border: 1px solid #dce5f0;
+      border-radius: 999px;
+      color: var(--colas-muted);
+      font-size: .75rem;
+    }
+    .colas-feature .colas-visit { padding: .7rem 1.1rem; font-weight: 600; }
+    .photography-note { padding: 0 0 3rem; }
+    .photography-note .photography-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.5rem 1.75rem;
+      border: 1px solid #e8e3db;
+      border-radius: .85rem;
+      background: #faf8f4;
+      color: #373d46;
+    }
+    .photography-note .photography-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 3rem;
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid #e0d8ca;
+      border-radius: 50%;
+      color: #796346;
+      font-size: 1.1rem;
+    }
+    .photography-note h2 { margin: 0 0 .4rem; font-size: 1.1rem; font-weight: 700; }
+    .photography-note p { margin: 0; color: #625d54; font-size: .93rem; line-height: 1.7; }
+    .photography-note .photography-link {
+      flex-shrink: 0;
+      margin-left: auto;
+      color: #614b2e;
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .photography-note .photography-link:hover { text-decoration: underline; }
+    .colas-feature a:focus-visible, .photography-note a:focus-visible {
+      outline: 3px solid #0d6efd;
+      outline-offset: 4px;
+    }
+    @media (max-width: 767.98px) {
+      .photography-note .photography-inner { flex-wrap: wrap; padding: 1.25rem; gap: 1rem; }
+      .photography-note .photography-copy { flex: 1; min-width: 0; }
+      .photography-note .photography-link { margin-left: 4rem; }
+    }
+    @media (max-width: 359.98px) {
+      .photography-note .photography-link { margin-left: 0; }
+    }
+
+    /* Keep the selected photographs in one scrollable row. */
+    .photography-note .photography-gallery-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.25rem 0 .75rem;
+    }
+    .photography-note .photography-gallery-heading p { font-size: .8rem; }
+    .photography-note .photography-controls[hidden] { display: none; }
+    .photography-note .photography-controls { display: flex; gap: .4rem; }
+    .photography-note .photography-controls button {
+      display: inline-grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border: 1px solid #e0d8ca;
+      border-radius: 50%;
+      background: #fff;
+      color: #614b2e;
+      cursor: pointer;
+    }
+    .photography-note .photography-controls button:hover { background: #faf8f4; }
+    .photography-note .photography-controls button:disabled { opacity: .35; cursor: default; }
+    .photography-note .photography-controls button:focus-visible,
+    .photography-note .photography-gallery:focus-visible {
+      outline: 3px solid #0d6efd;
+      outline-offset: 3px;
+    }
+    .photography-note .photography-gallery {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: min(340px, 100%);
+      align-items: start;
+      gap: 1rem;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+      scrollbar-width: thin;
+      scrollbar-color: #c4b6a1 #faf8f4;
+      padding: .25rem .1rem .85rem;
+    }
+    .photography-note .photography-post {
+      position: relative;
+      min-width: 0;
+      margin: 0;
+      border: 1px solid #e8e3db;
+      border-radius: .75rem;
+      overflow: hidden;
+      background: #fff;
+      scroll-snap-align: start;
+    }
+    .photography-note .photography-post .instagram-media {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    .photography-note blockquote.instagram-media {
+      display: grid;
+      place-items: center;
+      min-height: 390px;
+      padding: 1rem;
+      background: #faf8f4;
+    }
+    .photography-note blockquote.instagram-media a { color: #614b2e; text-align: center; }
+    .photography-note .photography-post figcaption {
+      padding: .65rem .85rem;
+      border-top: 1px solid #eee9e1;
+      font-size: .78rem;
+    }
+    .photography-note .photography-post figcaption a { color: #614b2e; }
+  </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="100">
@@ -49,11 +245,17 @@
           <p class="lead mb-4">
             I study how to make massive datasets interpretable in real-time. As a researcher at the <a href="https://dream.cs.umass.edu/" class="fw-bold text-decoration-none">DREAM Lab</a>, advised by <a href="https://people.cs.umass.edu/~ameli/">Dr. Alexandra Meliou</a>, I develop <strong>Perception-Aware Sampling</strong> algorithms that bridge statistical learning theory with visual analytics. You can have a demo of our work in the <a href="https://umass-dream-lab.github.io/paws/" class="fw-bold text-decoration-none" target="_blank">PAWS Playground</a>!
           </p>
-          <p class="text-secondary mb-5">
+          <p class="text-secondary mb-3">
             Previously, I was a Research Scientist at <strong>TigerIT</strong> and a Lecturer at the <strong>University of Dhaka</strong>. I am interested in Data Mining, Database Theory, and building scalable systems.
           </p>
           
-          <div class="d-flex gap-3">
+          <p class="text-secondary mb-4">
+            I also help build <a href="#colas" class="fw-bold text-decoration-none">COLAS</a>,
+            a coding lab assistant that brings together automated evaluation, plagiarism analysis,
+            and actionable feedback for students.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3">
             <a href="mailto:rrizvee@umass.edu" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
             <a href="https://scholar.google.com/citations?user=eblsTEQAAAAJ&hl=en" class="social-btn"><i class="fas fa-graduation-cap"></i> Scholar</a>
             <a href="https://github.com/rizveeredwan" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
@@ -250,27 +452,60 @@
   <section id="projects" class="section-padding bg-light">
     <div class="container">
       <h2 class="section-title">Software & Tools</h2>
-      <div class="row g-4">
-        
-        <div class="col-md-6 col-lg-4">
-          <div class="card project-card h-100 border-0 shadow-sm">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <i class="fas fa-code fa-2x text-primary"></i>
-                <a href="https://code.cognistorm.ai/" class="text-dark"><i class="fas fa-external-link-alt fa-lg"></i></a>
+      <!-- Featured project: COLAS -->
+      <article id="colas" class="colas-feature" aria-labelledby="colas-title">
+        <p class="colas-eyebrow">Featured project &middot; Software for programming education</p>
+        <div class="row g-4 g-lg-5 align-items-stretch">
+          <div class="col-lg-7">
+            <h3 id="colas-title" class="colas-title">COLAS</h3>
+            <p class="colas-subtitle mb-0">Coding Lab Assistant</p>
+            <p class="colas-role">One of the lead architects &amp; developers</p>
+            <p class="colas-description">
+              Learning to program takes more than an accepted or wrong-answer verdict.
+              COLAS brings code execution and grading, plagiarism detection, and
+              AI-assisted feedback into one platform for programming labs.
+            </p>
+            <p class="colas-contribution mb-4">
+              <strong>My contribution.</strong> I help design and develop the system across
+              its React interface, Flask backend, and MongoDB data layer, including
+              evaluation workflows, code similarity analysis, and feedback that helps
+              students understand mistakes and improve their solutions.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mb-4" aria-label="COLAS technologies">
+              <span class="colas-tech">React</span>
+              <span class="colas-tech">Flask</span>
+              <span class="colas-tech">MongoDB</span>
+              <span class="colas-tech">Code analysis</span>
+              <span class="colas-tech">LLM integration</span>
+            </div>
+            <a href="https://code.cognistorm.ai/" class="btn btn-primary colas-visit"
+               target="_blank" rel="noopener noreferrer">
+              Visit COLAS <i class="fas fa-arrow-up-right-from-square ms-2" aria-hidden="true"></i>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </div>
+          <div class="col-lg-5">
+            <div class="colas-capabilities">
+              <div class="colas-capability">
+                <h4><i class="fas fa-code me-2" aria-hidden="true"></i>Automated evaluation</h4>
+                <p>Code execution and grading, with activity tracking and progress reports for instructors.</p>
               </div>
-              <h5 class="card-title fw-bold">COLAS</h5>
-              <p class="card-text text-muted small">An automated source code evaluation system for competitive programming labs. Features plagiarism detection, strict monitoring, and Dockerized execution.</p>
-              <div class="mt-3">
-                <span class="badge bg-light text-dark border">Python</span>
-                <span class="badge bg-light text-dark border">React</span>
-                <span class="badge bg-light text-dark border">Docker</span>
+              <div class="colas-capability">
+                <h4><i class="fas fa-code-compare me-2" aria-hidden="true"></i>Plagiarism analysis</h4>
+                <p>Syntax-tree and sequence-based code comparison, with matched spans and side-by-side inspection.</p>
+              </div>
+              <div class="colas-capability">
+                <h4><i class="fas fa-comment-dots me-2" aria-hidden="true"></i>Feedback for learning</h4>
+                <p>LLM-assisted explanations that help students identify errors and find opportunities to improve.</p>
               </div>
             </div>
           </div>
         </div>
+      </article>
 
-        <div class="col-md-6 col-lg-4">
+      <div class="row g-4">
+
+        <div class="col-md-6">
           <div class="card project-card h-100 border-0 shadow-sm">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -287,7 +522,7 @@
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6">
           <div class="card project-card h-100 border-0 shadow-sm">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -353,6 +588,92 @@
     </div>
   </section>
 
+  <!-- A small personal note, kept separate from the research and project sections. -->
+  <section id="beyond-research" class="photography-note" aria-labelledby="beyond-research-title">
+    <div class="container">
+      <div class="photography-inner">
+        <div class="photography-icon" aria-hidden="true"><i class="fas fa-camera"></i></div>
+        <div class="photography-copy">
+          <h2 id="beyond-research-title">Beyond research</h2>
+          <p>I enjoy photography and share a few moments through my lens on Instagram.</p>
+        </div>
+        <a href="https://www.instagram.com/its_rizv/" class="photography-link"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram me-1" aria-hidden="true"></i> @its_rizv
+          <i class="fas fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i>
+          <span class="visually-hidden">(opens in a new tab)</span>
+        </a>
+      </div>
+
+      <div class="photography-gallery-heading">
+        <p id="photography-gallery-description">Selected photographs &middot; Scroll or use the arrows to explore.</p>
+        <div class="photography-controls" role="group" aria-label="Photograph navigation" hidden>
+          <button type="button" id="photography-previous" aria-label="Previous photographs" aria-controls="photography-gallery">
+            <span aria-hidden="true">&larr;</span>
+          </button>
+          <button type="button" id="photography-next" aria-label="Next photographs" aria-controls="photography-gallery">
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </div>
+      <div id="photography-gallery" class="photography-gallery" role="region"
+           aria-label="Selected Instagram photographs" aria-describedby="photography-gallery-description" tabindex="0">
+        <figure class="photography-post" aria-label="Instagram photograph 1 of 4">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DcGmrBFONrD/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/DcGmrBFONrD/" target="_blank" rel="noopener noreferrer">
+              View photograph 1 on Instagram
+            </a>
+          </blockquote>
+          <figcaption>
+            <a href="https://www.instagram.com/p/DcGmrBFONrD/" target="_blank" rel="noopener noreferrer">
+              Open photograph 1 on Instagram <span aria-hidden="true">&nearr;</span>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </figcaption>
+        </figure>
+        <figure class="photography-post" aria-label="Instagram photograph 2 of 4">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C5G4-42y1zp/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/C5G4-42y1zp/" target="_blank" rel="noopener noreferrer">
+              View photograph 2 on Instagram
+            </a>
+          </blockquote>
+          <figcaption>
+            <a href="https://www.instagram.com/p/C5G4-42y1zp/" target="_blank" rel="noopener noreferrer">
+              Open photograph 2 on Instagram <span aria-hidden="true">&nearr;</span>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </figcaption>
+        </figure>
+        <figure class="photography-post" aria-label="Instagram photograph 3 of 4">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DfG0-ISutiK/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/DfG0-ISutiK/" target="_blank" rel="noopener noreferrer">
+              View photograph 3 on Instagram
+            </a>
+          </blockquote>
+          <figcaption>
+            <a href="https://www.instagram.com/p/DfG0-ISutiK/" target="_blank" rel="noopener noreferrer">
+              Open photograph 3 on Instagram <span aria-hidden="true">&nearr;</span>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </figcaption>
+        </figure>
+        <figure class="photography-post" aria-label="Instagram photograph 4 of 4">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C1_GPKHpD95/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/C1_GPKHpD95/" target="_blank" rel="noopener noreferrer">
+              View photograph 4 on Instagram
+            </a>
+          </blockquote>
+          <figcaption>
+            <a href="https://www.instagram.com/p/C1_GPKHpD95/" target="_blank" rel="noopener noreferrer">
+              Open photograph 4 on Instagram <span aria-hidden="true">&nearr;</span>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <footer class="bg-dark text-white text-center py-4">
     <div class="container">
       <p class="mb-0 small">&copy; 2025 Redwan Ahmed Rizvee. Built with Bootstrap 5.</p>
@@ -364,7 +685,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 <script>
   function toggleBtnText(btn) {
     if (btn.innerHTML.includes("More")) {
@@ -374,4 +694,72 @@
     }
   }
 </script>
+
+  <script>
+    (() => {
+      const gallery = document.getElementById('photography-gallery');
+      if (!gallery) return;
+      const controls = document.querySelector('.photography-controls');
+      const previous = document.getElementById('photography-previous');
+      const next = document.getElementById('photography-next');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      controls.hidden = false;
+
+      const updateControls = () => {
+        previous.disabled = gallery.scrollLeft <= 3;
+        next.disabled = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
+      };
+      const move = (direction) => {
+        const card = gallery.querySelector('.photography-post');
+        const gap = parseFloat(getComputedStyle(gallery).columnGap) || 0;
+        gallery.scrollBy({
+          left: direction * (card.getBoundingClientRect().width + gap),
+          behavior: reducedMotion.matches ? 'auto' : 'smooth'
+        });
+      };
+      previous.addEventListener('click', () => move(-1));
+      next.addEventListener('click', () => move(1));
+      gallery.addEventListener('scroll', updateControls, { passive: true });
+      window.addEventListener('resize', updateControls);
+      updateControls();
+      const labelEmbeds = () => {
+        gallery.querySelectorAll('iframe').forEach((frame) => {
+          frame.title = frame.closest('.photography-post').getAttribute('aria-label');
+        });
+        updateControls();
+      };
+      new MutationObserver(labelEmbeds).observe(gallery, { childList: true, subtree: true });
+
+      // Load Instagram only as the photography section approaches the viewport.
+      // The post links remain usable if Instagram or its script cannot load.
+      let embedRequested = false;
+      const loadEmbeds = () => {
+        if (embedRequested) return;
+        embedRequested = true;
+        if (window.instgrm && window.instgrm.Embeds) {
+          window.instgrm.Embeds.process();
+          return;
+        }
+        const script = document.createElement('script');
+        script.src = 'https://www.instagram.com/embed.js';
+        script.async = true;
+        script.onload = () => {
+          if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+        };
+        document.body.appendChild(script);
+      };
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            loadEmbeds();
+            observer.disconnect();
+          }
+        }, { rootMargin: '400px 0px' });
+        observer.observe(gallery);
+      } else {
+        loadEmbeds();
+      }
+    })();
+  </script>
+</body>
 </html>
