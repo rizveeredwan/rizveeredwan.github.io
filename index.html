@@ -207,6 +207,38 @@
       font-size: .78rem;
     }
     .photography-note .photography-post figcaption a { color: #614b2e; }
+
+    .colas-feature .colas-videos {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #dce5f0;
+    }
+    .colas-feature .colas-videos-heading {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: .5rem 1rem;
+      margin-bottom: 1rem;
+    }
+    .colas-feature .colas-videos-heading h4 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .colas-feature .colas-channel-link { font-size: .8rem; color: #194a90; }
+    .colas-feature .colas-video-card {
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #dce5f0;
+      border-radius: .7rem;
+      background: #fff;
+    }
+    .colas-feature .colas-video-frame { aspect-ratio: 16 / 9; background: #f7f9fc; }
+    .colas-feature .colas-video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .colas-feature .colas-video-caption { padding: .85rem 1rem 1rem; }
+    .colas-feature .colas-video-caption h5 { margin: 0 0 .6rem; font-size: .9rem; font-weight: 600; }
+    .colas-feature .colas-video-caption a { color: #194a90; font-size: .78rem; }
   </style>
 </head>
 
@@ -275,8 +307,9 @@
       <div class="news-box bg-white p-4 rounded shadow-sm">
         <ul class="list-unstyled mb-0">
            <li class="mb-3">
-              <span class="badge bg-primary me-2">Sep 2026</span>
-              We got our revision on <strong>Perception-Augmented Databases for Effective Visual Analytics</strong> from SIGMOD! 
+              <span class="badge bg-primary me-2">Oct 2026</span>
+              Submitted <strong>Perception-Augmented Databases for Effective Visual Analytics</strong>
+              to <strong>Proceedings of the VLDB Endowment (PVLDB), Volume 20</strong>. 
            </li>
            <li class="mb-3">
               <span class="badge bg-primary me-2">Jan 2026</span>
@@ -501,6 +534,70 @@
             </div>
           </div>
         </div>
+
+      <div class="colas-videos" role="region" aria-labelledby="colas-videos-title">
+        <div class="colas-videos-heading">
+          <h4 id="colas-videos-title">COLAS in action</h4>
+          <a href="https://www.youtube.com/@cognistormai" class="colas-channel-link"
+             target="_blank" rel="noopener noreferrer">
+            More on the CognistormAI channel <span aria-hidden="true">&nearr;</span>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6 col-xl-4">
+            <div class="colas-video-card">
+              <div class="colas-video-frame">
+                <iframe src="https://www.youtube.com/embed/pJEr-wSdxZg"
+                        title="CoLAS | Find your first workflow" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="colas-video-caption">
+                <h5>Find your first workflow</h5>
+                <a href="https://www.youtube.com/watch?v=pJEr-wSdxZg" target="_blank" rel="noopener noreferrer">
+                  Watch on YouTube <span aria-hidden="true">&nearr;</span>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <div class="colas-video-card">
+              <div class="colas-video-frame">
+                <iframe src="https://www.youtube.com/embed/UdhKdnuJ70k"
+                        title="CoLAS | The Live IDE" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="colas-video-caption">
+                <h5>The Live IDE</h5>
+                <a href="https://www.youtube.com/watch?v=UdhKdnuJ70k" target="_blank" rel="noopener noreferrer">
+                  Watch on YouTube <span aria-hidden="true">&nearr;</span>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <div class="colas-video-card">
+              <div class="colas-video-frame">
+                <iframe src="https://www.youtube.com/embed/VncExq_U-8A"
+                        title="CoLAS | AI Tutor and your progress" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="colas-video-caption">
+                <h5>AI Tutor and your progress</h5>
+                <a href="https://www.youtube.com/watch?v=VncExq_U-8A" target="_blank" rel="noopener noreferrer">
+                  Watch on YouTube <span aria-hidden="true">&nearr;</span>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       </article>
 
       <div class="row g-4">
